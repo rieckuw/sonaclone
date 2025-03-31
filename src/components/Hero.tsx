@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -64,7 +63,7 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(126,34,206,0.5)]">
-              The first AI-Powered
+              The first AI-Generated
             </span>
             Personal Branding Agency
           </h1>
@@ -85,8 +84,8 @@ const Hero = () => {
               {/* Glow effect */}
               <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#7e22ce] blur-xl"></span>
               
-              {/* Text content - UPDATED TEXT */}
-              <span className="relative z-10">Speak To Our Team Today</span>
+              {/* Text content - UPDATED CTA TEXT */}
+              <span className="relative z-10">Book a Free Strategy Call Today</span>
             </button>
           </div>
         </div>
