@@ -50,6 +50,9 @@ const ContentPreview: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            {/* Add glowing effect behind the video */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg opacity-75 blur-xl animate-pulse-slow -z-10"></div>
+            
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
@@ -90,6 +93,9 @@ const ContentPreview: React.FC = () => {
 
           {/* After Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            {/* Add glowing effect behind the video - purple themed for the "after" video */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#7e22ce] to-[#d946ef] rounded-lg opacity-75 blur-xl animate-pulse-slow -z-10"></div>
+            
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
