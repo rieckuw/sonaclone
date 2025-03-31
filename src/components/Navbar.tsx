@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Phone } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +30,13 @@ const Navbar = () => {
             <a href="#how-it-works" className="text-gray-700 hover:text-purple-600 transition-colors">How It Works</a>
             <a href="#why-choose-us" className="text-gray-700 hover:text-purple-600 transition-colors">Why Choose Us</a>
             <a href="#results" className="text-gray-700 hover:text-purple-600 transition-colors">Results</a>
-            <Button className="btn-primary">Book a Call</Button>
+            <Button className="relative group overflow-hidden px-10 py-6 rounded-2xl bg-gradient-to-r from-purple-700 to-purple-500 hover:from-purple-800 hover:to-purple-600 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/30">
+              <span className="relative z-10 flex items-center gap-2">
+                <Phone size={18} />
+                <span>Book a Call</span>
+              </span>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] group-hover:blur-xl"></div>
+            </Button>
           </nav>
 
           {/* Mobile menu button */}
@@ -78,10 +85,14 @@ const Navbar = () => {
               Results
             </a>
             <Button 
-              className="btn-primary w-full"
+              className="relative group overflow-hidden px-10 py-6 rounded-2xl bg-gradient-to-r from-purple-700 to-purple-500 hover:from-purple-800 hover:to-purple-600 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/30 w-full"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Book a Call
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Phone size={18} />
+                <span>Book a Call</span>
+              </span>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] group-hover:blur-xl"></div>
             </Button>
           </nav>
         )}
