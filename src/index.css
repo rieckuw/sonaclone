@@ -161,3 +161,18 @@
 .carousel-item-exit {
   animation: fadeOut 0.5s forwards;
 }
+
+/* Phone carousel animation */
+.phoneCarousel {
+  width: max-content;
+  animation: phoneSlide 30s linear infinite;
+}
+
+@keyframes phoneSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

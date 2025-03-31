@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Images for carousel
 const clientImages = [
@@ -14,6 +14,7 @@ const clientImages = [
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,24 +58,45 @@ const Hero = () => {
             We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
           </p>
           
-          <div className="flex justify-center mb-20">
+          <div className="flex justify-center mb-10">
             <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
               Get Started in 1 Hour
             </Button>
           </div>
           
-          {/* Client Content Example Gallery */}
-          <div className="mt-16">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Phone-style content carousel (9:16 ratio) */}
+          <div className="w-full overflow-hidden mt-10">
+            <div 
+              ref={scrollRef} 
+              className="flex space-x-4 phoneCarousel"
+            >
+              {/* First set of images */}
               {clientImages.map((image, index) => (
-                <div key={index} className="relative group overflow-hidden rounded-xl">
-                  <img 
-                    src={image} 
-                    alt={`AI-generated content ${index + 1}`} 
-                    className="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                    <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                <div key={`img-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
+                  <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
+                    <img 
+                      src={image} 
+                      alt={`AI-generated content ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Duplicate set for seamless looping */}
+              {clientImages.map((image, index) => (
+                <div key={`img-dup-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
+                  <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
+                    <img 
+                      src={image} 
+                      alt={`AI-generated content ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                    </div>
                   </div>
                 </div>
               ))}
