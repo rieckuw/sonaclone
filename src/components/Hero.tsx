@@ -82,7 +82,7 @@ const Hero = () => {
               {/* Gradient background with animation */}
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] group-hover:bg-gradient-to-l transition-all duration-500"></span>
               
-              {/* Glow effect */}
+              {/* Enhanced glow effect */}
               <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#7e22ce] blur-xl"></span>
               
               {/* Text content - UPDATED CTA TEXT */}
