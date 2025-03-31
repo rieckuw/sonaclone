@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import ClientResults from "@/components/ClientResults";
 import ContentPreview from "@/components/ContentPreview";
 import StickyCallToAction from "@/components/StickyCallToAction";
 import Footer from "@/components/Footer";
@@ -15,7 +14,6 @@ const Index = () => {
       <Hero />
       <HowItWorks />
       <WhyChooseUs />
-      <ClientResults />
       <ContentPreview />
       <div className="bg-[#1c0639] py-32 text-center">
         <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
