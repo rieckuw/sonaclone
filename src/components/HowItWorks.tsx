@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const steps = [
   {
     id: 1,
-    title: "1-Hour Setup Call",
+    title: "1-Hour Setup Session",
     description: "We clone your voice & avatar—no need to record again.",
     icon: "⚡"
   },
@@ -58,7 +58,7 @@ const HowItWorks = () => {
 
         <div className="mt-16 text-center">
           <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
-            Start Now – 1-Hour Setup
+            Schedule Free Setup Session
           </Button>
         </div>
       </div>
