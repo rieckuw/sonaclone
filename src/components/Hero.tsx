@@ -79,13 +79,19 @@ const Hero = () => {
           
           <div className="flex justify-center mb-10">
             <button className="relative text-white text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 overflow-hidden group">
-              {/* Gradient background with animation */}
+              {/* Improved gradient background */}
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] group-hover:bg-gradient-to-l transition-all duration-500"></span>
               
-              {/* Enhanced glow effect */}
-              <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#7e22ce] blur-xl"></span>
+              {/* Enhanced glow effect with higher opacity and bigger blur */}
+              <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                <span className="absolute inset-0 w-full h-full bg-[#9333ea] blur-xl"></span>
+                <span className="absolute inset-0 w-full h-full bg-[#c026d3] blur-md"></span>
+              </span>
               
-              {/* Text content - UPDATED CTA TEXT */}
+              {/* Outer glow ring that appears on hover */}
+              <span className="absolute -inset-1 opacity-0 group-hover:opacity-70 rounded-full bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] blur-lg group-hover:blur-xl transition-all duration-500"></span>
+              
+              {/* Text content */}
               <span className="relative z-10">Book Free Consultation Today</span>
             </button>
           </div>
