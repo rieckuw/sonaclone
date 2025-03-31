@@ -64,7 +64,7 @@ const Hero = () => {
         <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(126,34,206,0.5)]">
-              The first AI-Powered
+              The First AI-Powered
             </span>
             Personal Branding Agency
           </h1>
