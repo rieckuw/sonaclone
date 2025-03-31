@@ -1,9 +1,29 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card } from '@/components/ui/card';
+import { Play } from 'lucide-react';
 
 const ContentPreview: React.FC = () => {
+  const [beforePlaying, setBeforePlaying] = useState(false);
+  const [afterPlaying, setAfterPlaying] = useState(false);
+
+  const handleBeforePlay = () => {
+    setBeforePlaying(true);
+    const video = document.getElementById('before-video') as HTMLVideoElement;
+    if (video) {
+      video.play();
+    }
+  };
+
+  const handleAfterPlay = () => {
+    setAfterPlaying(true);
+    const video = document.getElementById('after-video') as HTMLVideoElement;
+    if (video) {
+      video.play();
+    }
+  };
+
   return (
     <section id="content-preview" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
@@ -22,16 +42,28 @@ const ContentPreview: React.FC = () => {
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
+                  id="before-video"
                   onContextMenu={() => false}
                   controlsList="nodownload" 
-                  controls 
+                  controls={beforePlaying}
                   poster="https://rickypranaya.publit.io/file/0401.jpg"
                   playsInline
                   className="w-full h-full absolute inset-0"
+                  preload="auto"
                 >
-                  <source src="https://rickypranaya.publit.io/file/h_480/0401.mp4" type="video/mp4" />
+                  <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                {!beforePlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                    onClick={handleBeforePlay}
+                  >
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                    </div>
+                  </div>
+                )}
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -48,16 +80,28 @@ const ContentPreview: React.FC = () => {
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
+                  id="after-video"
                   onContextMenu={() => false}
                   controlsList="nodownload" 
-                  controls 
+                  controls={afterPlaying}
                   poster="https://rickypranaya.publit.io/file/dennish.jpg"
                   playsInline
                   className="w-full h-full absolute inset-0"
+                  preload="auto"
                 >
-                  <source src="https://rickypranaya.publit.io/file/h_480/pitching-4.mp4" type="video/mp4" />
+                  <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
+                {!afterPlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                    onClick={handleAfterPlay}
+                  >
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                    </div>
+                  </div>
+                )}
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
