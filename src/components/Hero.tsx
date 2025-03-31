@@ -26,8 +26,20 @@ const Hero = () => {
 
   return (
     <section className="py-32 min-h-screen flex flex-col items-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[#0e0118] -z-20"></div>
+      {/* Enhanced background with light effects */}
+      <div className="absolute inset-0 bg-[#0e0118] -z-30"></div>
+      
+      {/* Central purple light glow */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[60vh] rounded-full bg-[#8B5CF6] opacity-20 blur-[100px] animate-pulse-gradient -z-20"></div>
+      
+      {/* Secondary light effects */}
+      <div className="absolute left-[25%] top-[30%] w-[40vw] h-[30vh] rounded-full bg-[#9b87f5] opacity-10 blur-[120px] -z-20"></div>
+      <div className="absolute right-[20%] bottom-[20%] w-[30vw] h-[25vh] rounded-full bg-[#7E69AB] opacity-15 blur-[80px] -z-20"></div>
+      
+      {/* Top subtle light beam */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[20vw] h-[30vh] bg-gradient-to-b from-[#6E59A5]/30 to-transparent blur-[60px] -z-20"></div>
+      
+      {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
       
       {/* Background image with animation */}
