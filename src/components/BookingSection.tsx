@@ -56,10 +56,6 @@ const BookingSection = () => {
             
             {/* Right column - Call information */}
             <div className="bg-[#0e0118] p-8 md:p-12 border-l border-[#7e22ce]/30">
-              <div className="absolute -rotate-90 origin-bottom-right bg-[#7e22ce] text-white py-1 px-4 rounded-t-lg transform -translate-y-full">
-                <span className="font-semibold">Currently</span>
-              </div>
-              
               <div className="relative">
                 <div className="mb-8 flex items-center justify-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#7e22ce]">
@@ -72,8 +68,8 @@ const BookingSection = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
-                  <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">📅 Free 15-Minute Strategy Call</h2>
+                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY, CO-FOUNDER</h3>
+                  <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
                 </div>
                 
                 <div className="mb-8">
