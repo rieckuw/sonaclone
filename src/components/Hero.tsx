@@ -53,10 +53,10 @@ const Hero = () => {
       <div className="container mx-auto px-4 mb-12">
         <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white">
-            Personal Branding Agency<br/>
-            <span className="bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
-              100% AI-Powered.
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
+              The first AI-Powered
             </span>
+            Personal Branding Agency
           </h1>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">
