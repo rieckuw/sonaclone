@@ -106,13 +106,15 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
-                  <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
-                    <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
-                      {clientInfo[index].name}
-                    </div>
-                    <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
-                      {clientInfo[index].title}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
+                      <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
+                        {clientInfo[index].name}
+                      </div>
+                      <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
+                        {clientInfo[index].title}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -127,13 +129,15 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
-                  <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
-                    <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
-                      {clientInfo[index].name}
-                    </div>
-                    <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
-                      {clientInfo[index].title}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
+                      <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
+                        {clientInfo[index].name}
+                      </div>
+                      <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
+                        {clientInfo[index].title}
+                      </div>
                     </div>
                   </div>
                 </div>
