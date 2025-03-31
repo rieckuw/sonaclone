@@ -39,7 +39,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-24 min-h-screen flex flex-col items-center relative overflow-hidden">
+    <section className="pt-32 pb-24 min-h-screen flex flex-col items-center relative overflow-hidden">
       {/* Dark background base */}
       <div className="absolute inset-0 bg-[#0e0118] -z-30"></div>
       

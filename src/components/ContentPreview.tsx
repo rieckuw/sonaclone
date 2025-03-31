@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ArrowRight, Play } from 'lucide-react';
@@ -66,7 +67,7 @@ const ContentPreview: React.FC = () => {
   return (
     <section 
       id="content-preview" 
-      className="py-32 bg-[#0e0118] relative overflow-hidden"
+      className="py-20 bg-[#0e0118] relative overflow-hidden"
       ref={sectionRef}
     >
       <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 bg-purple-600/20 rounded-full blur-[120px] animate-pulse-slow -z-0"></div>
