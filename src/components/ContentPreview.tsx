@@ -51,7 +51,7 @@ const ContentPreview: React.FC = () => {
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={beforeVideoRef}
-                  src="https://drive.google.com/uc?export=download&id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
+                  src="https://drive.google.com/uc?id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
                   poster="https://drive.google.com/thumbnail?id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
                   loop
                   muted
@@ -82,7 +82,7 @@ const ContentPreview: React.FC = () => {
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={afterVideoRef}
-                  src="https://drive.google.com/uc?export=download&id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
+                  src="https://drive.google.com/uc?id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
                   poster="https://drive.google.com/thumbnail?id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
                   loop
                   muted
