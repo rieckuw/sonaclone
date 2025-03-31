@@ -39,7 +39,7 @@ const ContentPreview: React.FC = () => {
     <section id="content-preview" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+          <h2 className="section-title">
             Content Like You've Never Seen
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
@@ -50,43 +50,41 @@ const ContentPreview: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
           <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
-            {/* Glowing outer border effect for the "before" example */}
-            <div className="glow-container before-glow rounded-xl">
-              <div className="relative w-full rounded-xl overflow-hidden">
-                <AspectRatio ratio={9/16} className="bg-gray-900">
-                  <video 
-                    ref={beforeVideoRef}
-                    id="before-video"
-                    onContextMenu={() => false}
-                    controlsList="nodownload" 
-                    controls={false}
-                    poster="https://rickypranaya.publit.io/file/0401.jpg"
-                    playsInline
-                    className="w-full h-full absolute inset-0"
-                    preload="auto"
-                    onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-75 blur-md rounded-xl animate-pulse-slow"></div>
+            <div className="relative w-full rounded-xl overflow-hidden z-10">
+              <AspectRatio ratio={9/16} className="bg-gray-900">
+                <video 
+                  ref={beforeVideoRef}
+                  id="before-video"
+                  onContextMenu={() => false}
+                  controlsList="nodownload" 
+                  controls={false}
+                  poster="https://rickypranaya.publit.io/file/0401.jpg"
+                  playsInline
+                  className="w-full h-full absolute inset-0"
+                  preload="auto"
+                  onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
+                >
+                  <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {!beforePlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                    onClick={handleBeforePlay}
                   >
-                    <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  {!beforePlaying && (
-                    <div 
-                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                      onClick={handleBeforePlay}
-                    >
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                        <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                      </div>
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                     </div>
-                  )}
-                </AspectRatio>
-              </div>
+                  </div>
+                )}
+              </AspectRatio>
             </div>
             
-            <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
+            <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg z-20">
               <span className="font-semibold">Before</span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
               <p className="text-white font-medium">Original Content</p>
               <p className="text-gray-300 text-sm">Typical self-recorded content</p>
             </div>
@@ -94,43 +92,41 @@ const ContentPreview: React.FC = () => {
 
           {/* After Example */}
           <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
-            {/* Glowing outer border effect for the "after" example */}
-            <div className="glow-container after-glow rounded-xl">
-              <div className="relative w-full rounded-xl overflow-hidden">
-                <AspectRatio ratio={9/16} className="bg-gray-900">
-                  <video 
-                    ref={afterVideoRef}
-                    id="after-video"
-                    onContextMenu={() => false}
-                    controlsList="nodownload" 
-                    controls={false}
-                    poster="https://rickypranaya.publit.io/file/dennish.jpg"
-                    playsInline
-                    className="w-full h-full absolute inset-0"
-                    preload="auto"
-                    onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-75 blur-md rounded-xl animate-pulse-slow"></div>
+            <div className="relative w-full rounded-xl overflow-hidden z-10">
+              <AspectRatio ratio={9/16} className="bg-gray-900">
+                <video 
+                  ref={afterVideoRef}
+                  id="after-video"
+                  onContextMenu={() => false}
+                  controlsList="nodownload" 
+                  controls={false}
+                  poster="https://rickypranaya.publit.io/file/dennish.jpg"
+                  playsInline
+                  className="w-full h-full absolute inset-0"
+                  preload="auto"
+                  onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
+                >
+                  <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {!afterPlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                    onClick={handleAfterPlay}
                   >
-                    <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  {!afterPlaying && (
-                    <div 
-                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                      onClick={handleAfterPlay}
-                    >
-                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                        <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                      </div>
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                     </div>
-                  )}
-                </AspectRatio>
-              </div>
+                  </div>
+                )}
+              </AspectRatio>
             </div>
             
-            <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
+            <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg z-20">
               <span className="font-semibold">After</span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
               <p className="text-white font-medium">AI-Enhanced Content</p>
               <p className="text-gray-300 text-sm">Professionally edited & enhanced</p>
             </div>
