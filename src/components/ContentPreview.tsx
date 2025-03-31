@@ -39,7 +39,7 @@ const ContentPreview: React.FC = () => {
     <section id="content-preview" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-24">
-          <h2 className="section-title">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
             Content Like You've Never Seen
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
@@ -49,9 +49,8 @@ const ContentPreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
-          <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 opacity-75 blur-md rounded-xl animate-pulse-slow"></div>
-            <div className="relative w-full rounded-xl overflow-hidden z-10">
+          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={beforeVideoRef}
@@ -80,20 +79,18 @@ const ContentPreview: React.FC = () => {
                 )}
               </AspectRatio>
             </div>
-            
-            <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg z-20">
+            <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">Before</span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
               <p className="text-white font-medium">Original Content</p>
               <p className="text-gray-300 text-sm">Typical self-recorded content</p>
             </div>
           </div>
 
           {/* After Example */}
-          <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-pink-500 opacity-75 blur-md rounded-xl animate-pulse-slow"></div>
-            <div className="relative w-full rounded-xl overflow-hidden z-10">
+          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={afterVideoRef}
@@ -122,11 +119,10 @@ const ContentPreview: React.FC = () => {
                 )}
               </AspectRatio>
             </div>
-            
-            <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg z-20">
+            <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">After</span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
               <p className="text-white font-medium">AI-Enhanced Content</p>
               <p className="text-gray-300 text-sm">Professionally edited & enhanced</p>
             </div>
