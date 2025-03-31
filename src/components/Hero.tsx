@@ -34,6 +34,11 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Function to scroll to the booking section
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-32 min-h-screen flex flex-col items-center relative overflow-hidden">
       {/* Dark background base */}
@@ -78,7 +83,10 @@ const Hero = () => {
           </p>
           
           <div className="flex justify-center mb-10">
-            <button className="relative text-white text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 overflow-hidden group">
+            <button 
+              className="relative text-white text-lg font-bold px-8 py-4 rounded-full transition-all duration-300 overflow-hidden group"
+              onClick={scrollToBooking}
+            >
               {/* Gradient background with animation */}
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] group-hover:bg-gradient-to-l transition-all duration-500"></span>
               
