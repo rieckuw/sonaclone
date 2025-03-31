@@ -6,7 +6,6 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import ContentPreview from "@/components/ContentPreview";
 import BookingSection from "@/components/BookingSection";
 import Footer from "@/components/Footer";
-import StickyCallToAction from "@/components/StickyCallToAction";
 
 const Index = () => {
   return (
@@ -18,7 +17,6 @@ const Index = () => {
       <ContentPreview />
       <BookingSection />
       <Footer />
-      <StickyCallToAction />
       
       {/* Add smooth scrolling behavior */}
       <style dangerouslySetInnerHTML={{ __html: `

@@ -26,12 +26,12 @@ const BookingSection = () => {
   }, []);
   
   return (
-    <section id="booking" className="py-32 bg-[#0e0118]">
+    <section id="booking" className="py-20 md:py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left column - Calendly iframe */}
-            <div className="bg-[#1c0639] p-8 md:p-12">
+            <div className="bg-[#1c0639] p-6 md:p-12">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold text-white mb-4">Demo Call</h2>
                 
@@ -49,19 +49,19 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Updated Calendly inline widget with black text color */}
+                {/* Updated Calendly inline widget with responsive height */}
                 <div className="calendly-inline-widget" 
                   data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=000000&primary_color=7429c6" 
-                  style={{ minWidth: "320px", height: "700px" }}>
+                  style={{ minWidth: "320px", height: "600px" }}>
                 </div>
               </div>
             </div>
             
             {/* Right column - Call information */}
-            <div className="bg-[#0e0118] p-8 md:p-12 border-l border-[#7e22ce]/30">
+            <div className="bg-[#0e0118] p-6 md:p-12 border-l border-[#7e22ce]/30">
               <div className="relative">
                 <div className="mb-8 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#7e22ce]">
+                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-[#7e22ce]">
                     <img 
                       src="/lovable-uploads/582b24c1-ef41-4ede-a202-e5ff8be9e0d1.png" 
                       alt="Profile" 
@@ -71,61 +71,61 @@ const BookingSection = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
-                  <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
+                  <h3 className="text-[#ff3ebc] text-lg md:text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
+                  <h2 className="text-white text-3xl md:text-5xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
                 </div>
                 
                 <div className="mb-8">
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     By the end of this strategy call, you will have a clear
                     understanding of how to scale your personal brand effortlessly
                     with AI-generated content—without recording daily.
                   </p>
                   
-                  <p className="text-gray-300 leading-relaxed mt-4">
+                  <p className="text-gray-300 leading-relaxed mt-4 text-sm md:text-base">
                     Find a time on Ricky's calendar to schedule your call today.
                     We look forward to helping you build your authority online!
                   </p>
                 </div>
                 
                 <div className="mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold mb-4">THIS STRATEGY CALL IS PERFECT FOR:</h3>
+                  <h3 className="text-[#ff3ebc] text-lg md:text-xl font-bold mb-4">THIS STRATEGY CALL IS PERFECT FOR:</h3>
                   
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
-                      <span className="text-gray-300">
+                      <span className="text-gray-300 text-sm md:text-base">
                         Busy entrepreneurs & founders who want to build a strong personal brand but don't have time to record content.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
-                      <span className="text-gray-300">
+                      <span className="text-gray-300 text-sm md:text-base">
                         Coaches & consultants looking to attract more leads and position themselves as industry experts.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
-                      <span className="text-gray-300">
+                      <span className="text-gray-300 text-sm md:text-base">
                         CEOs & executives who need consistent social media presence without spending hours on content creation.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
-                      <span className="text-gray-300">
+                      <span className="text-gray-300 text-sm md:text-base">
                         Anyone struggling with consistency and wants to grow 10x faster with daily high-quality videos—on autopilot.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
-                      <span className="text-gray-300">
+                      <span className="text-gray-300 text-sm md:text-base">
                         Professionals who want to leverage AI to stay ahead of competitors without extra effort.
                       </span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="text-center text-gray-300 mb-4">
+                <div className="text-center text-gray-300 mb-4 text-sm md:text-base">
                   Not ready for a call?
                 </div>
                 
@@ -133,7 +133,7 @@ const BookingSection = () => {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer" 
-                  className="block w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white text-lg font-bold py-6 rounded-xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 text-center"
+                  className="block w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white text-base md:text-lg font-bold py-4 md:py-6 rounded-xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 text-center"
                 >
                   Chat with us on WhatsApp
                 </a>
