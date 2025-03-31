@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -21,24 +20,6 @@ const BookingSection = () => {
       document.body.removeChild(script);
     };
   }, []);
-
-  // Function to initialize Calendly with custom theme
-  useEffect(() => {
-    if (isCalendlyReady && window.Calendly) {
-      window.Calendly.initInlineWidget({
-        url: 'https://calendly.com/your-calendly-link', // Replace with your actual Calendly link
-        parentElement: document.getElementById('calendly-container'),
-        prefill: {},
-        // Theme colors matching the website's design
-        styles: {
-          color: '#ffffff',
-          backgroundColor: '#0e0118',
-          primaryColor: '#7e22ce',
-          textColor: '#ffffff',
-        },
-      });
-    }
-  }, [isCalendlyReady]);
   
   return (
     <section className="py-32 bg-[#0e0118]">
@@ -65,8 +46,11 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Calendly inline widget container */}
-                <div id="calendly-container" className="min-h-[500px] rounded-md border border-[#7e22ce]/30"></div>
+                {/* Calendly inline widget container with specific URL */}
+                <div className="calendly-inline-widget" 
+                  data-url="https://calendly.com/ricky-sonaclone/demo-call?background_color=190737&text_color=ffffff&primary_color=7429c6" 
+                  style={{ minWidth: "320px", height: "700px" }}>
+                </div>
               </div>
             </div>
             
