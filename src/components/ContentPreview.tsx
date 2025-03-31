@@ -49,39 +49,40 @@ const ContentPreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
-          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            {/* Add glowing effect behind the video */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg opacity-75 blur-xl animate-pulse-slow -z-10"></div>
-            
-            <div className="relative w-full">
-              <AspectRatio ratio={9/16} className="bg-gray-900">
-                <video 
-                  ref={beforeVideoRef}
-                  id="before-video"
-                  onContextMenu={() => false}
-                  controlsList="nodownload" 
-                  controls={false}
-                  poster="https://rickypranaya.publit.io/file/0401.jpg"
-                  playsInline
-                  className="w-full h-full absolute inset-0"
-                  preload="auto"
-                  onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
-                >
-                  <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                {!beforePlaying && (
-                  <div 
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                    onClick={handleBeforePlay}
+          <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
+            {/* Glowing outer border effect for the "before" example */}
+            <div className="glow-container before-glow rounded-xl">
+              <div className="relative w-full rounded-xl overflow-hidden">
+                <AspectRatio ratio={9/16} className="bg-gray-900">
+                  <video 
+                    ref={beforeVideoRef}
+                    id="before-video"
+                    onContextMenu={() => false}
+                    controlsList="nodownload" 
+                    controls={false}
+                    poster="https://rickypranaya.publit.io/file/0401.jpg"
+                    playsInline
+                    className="w-full h-full absolute inset-0"
+                    preload="auto"
+                    onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
                   >
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                    <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {!beforePlaying && (
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                      onClick={handleBeforePlay}
+                    >
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                        <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </AspectRatio>
+                  )}
+                </AspectRatio>
+              </div>
             </div>
+            
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">Before</span>
             </div>
@@ -92,39 +93,40 @@ const ContentPreview: React.FC = () => {
           </div>
 
           {/* After Example */}
-          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            {/* Add glowing effect behind the video - purple themed for the "after" video */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#7e22ce] to-[#d946ef] rounded-lg opacity-75 blur-xl animate-pulse-slow -z-10"></div>
-            
-            <div className="relative w-full">
-              <AspectRatio ratio={9/16} className="bg-gray-900">
-                <video 
-                  ref={afterVideoRef}
-                  id="after-video"
-                  onContextMenu={() => false}
-                  controlsList="nodownload" 
-                  controls={false}
-                  poster="https://rickypranaya.publit.io/file/dennish.jpg"
-                  playsInline
-                  className="w-full h-full absolute inset-0"
-                  preload="auto"
-                  onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
-                >
-                  <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                {!afterPlaying && (
-                  <div 
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                    onClick={handleAfterPlay}
+          <div className="relative overflow-hidden max-w-[280px] mx-auto w-full">
+            {/* Glowing outer border effect for the "after" example */}
+            <div className="glow-container after-glow rounded-xl">
+              <div className="relative w-full rounded-xl overflow-hidden">
+                <AspectRatio ratio={9/16} className="bg-gray-900">
+                  <video 
+                    ref={afterVideoRef}
+                    id="after-video"
+                    onContextMenu={() => false}
+                    controlsList="nodownload" 
+                    controls={false}
+                    poster="https://rickypranaya.publit.io/file/dennish.jpg"
+                    playsInline
+                    className="w-full h-full absolute inset-0"
+                    preload="auto"
+                    onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
                   >
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                    <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {!afterPlaying && (
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                      onClick={handleAfterPlay}
+                    >
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                        <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                      </div>
                     </div>
-                  </div>
-                )}
-              </AspectRatio>
+                  )}
+                </AspectRatio>
+              </div>
             </div>
+            
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">After</span>
             </div>
