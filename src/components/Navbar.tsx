@@ -31,7 +31,7 @@ const Navbar = () => {
             <a href="#why-choose-us" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Solutions</a>
             <a href="#results" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Success</a>
             <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-sm font-bold px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(126,34,206,0.4)] transition-all duration-300 uppercase">
-              Book a call
+              WHATSAPP US
             </Button>
           </nav>
 
@@ -91,7 +91,7 @@ const Navbar = () => {
               className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-sm font-bold px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(126,34,206,0.4)] transition-all duration-300 uppercase w-full"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Book a call
+              WHATSAPP US
             </Button>
           </nav>
         )}
@@ -101,4 +101,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
