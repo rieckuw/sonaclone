@@ -97,7 +97,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden;
   }
 
   .section-title {
@@ -119,6 +119,24 @@
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
+  }
+
+  .gradient-card {
+    @apply relative overflow-hidden border border-purple-100 rounded-xl;
+    background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(240,234,255,1) 100%);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/60 border border-white/20 rounded-xl shadow-lg;
+  }
+
+  .gradient-border {
+    @apply relative rounded-lg p-[1px] overflow-hidden;
+    background: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
+  }
+
+  .gradient-border > div {
+    @apply bg-white rounded-lg;
   }
 }
 
@@ -142,4 +160,20 @@
 .counter::after {
   content: counter(count);
   counter-reset: count var(--num);
+}
+
+/* Radial gradient animation */
+@keyframes pulse-gradient {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-gradient {
+  animation: pulse-gradient 8s ease-in-out infinite;
 }
