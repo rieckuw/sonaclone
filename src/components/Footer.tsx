@@ -16,16 +16,16 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-3 text-[#e4ff1a]">Services</h4>
+            <h4 className="text-lg font-bold mb-3 text-[#a855f7]">Navigation</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">AI Content Creation</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Personal Branding</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Social Media Management</a></li>
+              <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="#why-choose-us" className="text-gray-400 hover:text-white transition-colors">Solutions</a></li>
+              <li><a href="#content-preview" className="text-gray-400 hover:text-white transition-colors">Examples</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-3 text-[#e4ff1a]">Company</h4>
+            <h4 className="text-lg font-bold mb-3 text-[#a855f7]">Company</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
@@ -39,9 +39,9 @@ const Footer = () => {
             © {currentYear} Sonaclone Agency. All rights reserved.
           </p>
           <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-[#e4ff1a] transition-colors">Twitter</a>
-            <a href="#" className="text-gray-400 hover:text-[#e4ff1a] transition-colors">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-[#e4ff1a] transition-colors">Instagram</a>
+            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">Twitter</a>
+            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">LinkedIn</a>
+            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">Instagram</a>
           </div>
         </div>
       </div>

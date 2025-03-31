@@ -27,9 +27,8 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
             <a href="#how-it-works" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">How It Works</a>
-            <a href="#content-preview" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Examples</a>
             <a href="#why-choose-us" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Solutions</a>
-            <a href="#results" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Success</a>
+            <a href="#content-preview" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Examples</a>
             <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-sm font-bold px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(126,34,206,0.4)] transition-all duration-300 uppercase">
               WHATSAPP US
             </Button>
@@ -67,13 +66,6 @@ const Navbar = () => {
               How It Works
             </a>
             <a 
-              href="#content-preview" 
-              className="text-gray-300 hover:text-[#a855f7] transition-colors py-2 text-sm font-medium uppercase"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Examples
-            </a>
-            <a 
               href="#why-choose-us" 
               className="text-gray-300 hover:text-[#a855f7] transition-colors py-2 text-sm font-medium uppercase"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -81,11 +73,11 @@ const Navbar = () => {
               Solutions
             </a>
             <a 
-              href="#results" 
+              href="#content-preview" 
               className="text-gray-300 hover:text-[#a855f7] transition-colors py-2 text-sm font-medium uppercase"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Success
+              Examples
             </a>
             <Button 
               className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-sm font-bold px-6 py-3 rounded-full hover:shadow-[0_0_15px_rgba(126,34,206,0.4)] transition-all duration-300 uppercase w-full"

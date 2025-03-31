@@ -17,6 +17,13 @@ const Index = () => {
       <ContentPreview />
       <BookingSection />
       <Footer />
+      
+      {/* Add smooth scrolling behavior */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
     </div>
   );
 };
