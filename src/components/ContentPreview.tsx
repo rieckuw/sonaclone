@@ -3,8 +3,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Play, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Toggle } from '@/components/ui/toggle';
 
 const ContentPreview: React.FC = () => {
   const [beforePlaying, setBeforePlaying] = useState(false);
