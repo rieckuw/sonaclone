@@ -1,5 +1,12 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Client {
   id: number;
@@ -49,7 +56,6 @@ const clients: Client[] = [
 
 const ClientImageCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -60,27 +66,32 @@ const ClientImageCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden mt-20">
-      <div className="flex gap-4 justify-center flex-wrap">
-        {clients.map((client, index) => (
-          <div 
-            key={client.id} 
-            className={`relative w-64 h-36 overflow-hidden rounded-lg transition-all duration-500 ${
-              activeIndex === index ? "scale-110 shadow-[0_0_15px_rgba(228,255,26,0.4)]" : "opacity-40"
-            }`}
-          >
-            <img 
-              src={client.image} 
-              alt={`${client.name} - ${client.title}`}
-              className="object-cover w-full h-full"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end p-3">
-              <h4 className="text-white font-semibold text-sm">{client.name}</h4>
-              <p className="text-gray-300 text-xs">{client.title}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full mt-20">
+      <Carousel className="max-w-5xl mx-auto">
+        <CarouselContent>
+          {clients.map((client, index) => (
+            <CarouselItem key={client.id} className="md:basis-1/2 lg:basis-1/3">
+              <div 
+                className={`relative w-full h-48 overflow-hidden rounded-lg transition-all duration-500 ${
+                  activeIndex === index ? "scale-110 shadow-[0_0_15px_rgba(228,255,26,0.4)]" : "opacity-70"
+                }`}
+              >
+                <img 
+                  src={client.image} 
+                  alt={`${client.name} - ${client.title}`}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 flex flex-col justify-end p-3">
+                  <h4 className="text-white font-semibold text-sm">{client.name}</h4>
+                  <p className="text-gray-300 text-xs">{client.title}</p>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-0" />
+        <CarouselNext className="right-0" />
+      </Carousel>
     </div>
   );
 };
