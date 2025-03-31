@@ -68,7 +68,7 @@ const BookingSection = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY, CO-FOUNDER</h3>
+                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
                   <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
                 </div>
                 
