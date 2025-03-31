@@ -19,9 +19,9 @@ const painPoints = [
     icon: "💡"
   },
   {
-    problem: "I don't want to edit or post videos.",
-    solution: "Done for you. We handle scripting, editing, B-roll, and posting—so you grow effortlessly.",
-    icon: "📊"
+    problem: "I can't grow my personal brand.",
+    solution: "Daily posting = consistent growth. We help you scale 10x faster without lifting a finger.",
+    icon: "🚀"
   }
 ];
 
