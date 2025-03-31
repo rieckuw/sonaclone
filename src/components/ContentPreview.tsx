@@ -51,8 +51,8 @@ const ContentPreview: React.FC = () => {
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={beforeVideoRef}
-                  src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy.mp4"
-                  poster="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy_s.gif"
+                  src="https://drive.google.com/uc?export=download&id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
+                  poster="https://drive.google.com/thumbnail?id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
                   loop
                   muted
                   playsInline
@@ -82,8 +82,8 @@ const ContentPreview: React.FC = () => {
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={afterVideoRef}
-                  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.mp4"
-                  poster="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy_s.gif"
+                  src="https://drive.google.com/uc?export=download&id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
+                  poster="https://drive.google.com/thumbnail?id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
                   loop
                   muted
                   playsInline
