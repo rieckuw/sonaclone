@@ -1,6 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -42,18 +43,41 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {steps.map((step) => (
-            <Card key={step.id} className="bg-[#1c0639] border-[#7e22ce]/20 p-8 rounded-2xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.2)] transition-all duration-500">
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-[#7e22ce]/20 rounded-full flex items-center justify-center text-3xl mr-4">
-                  {step.icon}
+        <div className="relative">
+          {/* Process connector line for desktop */}
+          <div className="hidden lg:block absolute top-28 left-[calc(12.5%+3rem)] right-[calc(12.5%+3rem)] h-1 bg-gradient-to-r from-purple-600/20 via-purple-600/50 to-purple-600/20 z-0"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 relative z-10">
+            {steps.map((step, index) => (
+              <div key={step.id} className="flex flex-col">
+                {/* Step indicator with prominent number */}
+                <div className="flex justify-center mb-6">
+                  <div className="relative">
+                    <div className="w-20 h-20 rounded-full bg-[#7e22ce] flex items-center justify-center shadow-[0_0_15px_rgba(126,34,206,0.5)]">
+                      <span className="text-white text-3xl font-bold">{step.id}</span>
+                    </div>
+                    
+                    {/* Arrow for all but last step */}
+                    {index < steps.length - 1 && (
+                      <div className="hidden lg:flex absolute top-1/2 -right-12 transform -translate-y-1/2 text-[#9333ea]">
+                        <ArrowRight size={30} className="animate-pulse-slow" />
+                      </div>
+                    )}
+                  </div>
                 </div>
+                
+                <Card className="bg-[#1c0639] border-[#7e22ce]/20 p-8 rounded-2xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.2)] transition-all duration-500 h-full">
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-[#7e22ce]/20 rounded-full flex items-center justify-center text-3xl mr-4">
+                      {step.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-white">{step.title}</h3>
+                  <p className="text-gray-400">{step.description}</p>
+                </Card>
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-white">{step.title}</h3>
-              <p className="text-gray-400">{step.description}</p>
-            </Card>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 text-center">
