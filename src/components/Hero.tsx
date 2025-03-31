@@ -12,10 +12,10 @@ const Hero = () => {
         <div className="text-center max-w-4xl mx-auto mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-gradient">Agensi Personal Branding</span><br />
-            <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent inline-block">
+            <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent inline-block text-4xl md:text-5xl lg:text-6xl">
               AI Pertama.
             </span><br />
-            <span className="inline-block">30 Posts/Month. 1 Hour Setup. Grow 10x Faster.</span>
+            <span className="inline-block text-2xl md:text-3xl lg:text-4xl mt-2">30 Posts/Month. 1 Hour Setup. Grow 10x Faster.</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             No time to create content? No problem. We build your personal brand with AI-generated, high-quality posts that position you as an industry leader—without you lifting a finger.
