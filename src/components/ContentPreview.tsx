@@ -17,16 +17,16 @@ const ContentPreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
-          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto">
-            <AspectRatio ratio={9/16} className="bg-gray-900">
-              <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            <div className="relative w-full">
+              <AspectRatio ratio={9/16} className="bg-gray-900">
                 <img 
                   src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy.gif"
                   alt="Before AI Enhancement"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover absolute inset-0"
                 />
-              </div>
-            </AspectRatio>
+              </AspectRatio>
+            </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">Before</span>
             </div>
@@ -37,16 +37,16 @@ const ContentPreview: React.FC = () => {
           </div>
 
           {/* After Example */}
-          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto">
-            <AspectRatio ratio={9/16} className="bg-gray-900">
-              <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
+            <div className="relative w-full">
+              <AspectRatio ratio={9/16} className="bg-gray-900">
                 <img 
                   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.gif"
                   alt="After AI Enhancement"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover absolute inset-0"
                 />
-              </div>
-            </AspectRatio>
+              </AspectRatio>
+            </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
               <span className="font-semibold">After</span>
             </div>
