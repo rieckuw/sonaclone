@@ -106,7 +106,7 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
                   <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="text-white font-bold text-lg mb-1 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
                       {clientInfo[index].name}
@@ -127,7 +127,7 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
                   <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                     <div className="text-white font-bold text-lg mb-1 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
                       {clientInfo[index].name}
