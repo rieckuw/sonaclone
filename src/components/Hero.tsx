@@ -5,11 +5,21 @@ import { useState, useEffect, useRef } from 'react';
 // GIFs for carousel
 const clientImages = [
   "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
-  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
-  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
-  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
-  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
-  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3o4ZDJ1dTkzeHAwMnE3ZzhvZDU5bjhxdTlsNWFrNnR1cXMzeTJmcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2RbGEdUplLILkEZ84R/giphy.gif",
+  "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy.gif",
+  "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3ZleXllN3h2dDY4cDVqazhkZDRidHd2cG1pZzdpMDV5NnRjMW5scyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/23BgcH8NPQwOxWNeiA/giphy.gif",
+  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.gif",
+  "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXlrdDMyaWt1bG41eTZycjZsdnZzM2gwcnl1YnNkdXR6cW44Z21wdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9sJK6bf9OYhYrNvRzA/giphy.gif",
+];
+
+// Client information
+const clientInfo = [
+  { name: "Dennish Tjandra", title: "VP of SPIL Ventures" },
+  { name: "Sebastian Evan", title: "CEO Sepaktemu Academy" },
+  { name: "Henry Dermawan", title: "Co-Founder Soar.id" },
+  { name: "Melvin Mumpuni", title: "Founder Finansialku" },
+  { name: "Rey Kamal", title: "CEO Ledgerowl" },
+  { name: "Ricky Pranaya", title: "Co-Founder Sonaclone" },
 ];
 
 const Hero = () => {
@@ -93,11 +103,11 @@ const Hero = () => {
               <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
                 <img 
                   src={image} 
-                  alt={`AI-generated content ${index + 1}`} 
+                  alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                  <p className="text-white text-sm font-medium">{clientInfo[index].name} ({clientInfo[index].title})</p>
                 </div>
               </div>
             </div>
@@ -107,11 +117,11 @@ const Hero = () => {
               <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
                 <img 
                   src={image} 
-                  alt={`AI-generated content ${index + 1}`} 
+                  alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                  <p className="text-white text-sm font-medium">{clientInfo[index].name} ({clientInfo[index].title})</p>
                 </div>
               </div>
             </div>
