@@ -30,7 +30,7 @@ const stats = [
 
 const ClientResults = () => {
   return (
-    <section id="results" className="py-20 bg-white">
+    <section id="results" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="section-title">Client Results & Testimonials</h2>
@@ -39,24 +39,24 @@ const ClientResults = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="text-center p-8 bg-purple-50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-center">
                 <span 
-                  className="counter text-5xl md:text-6xl font-bold text-purple-600"
+                  className="counter text-6xl md:text-7xl font-bold text-purple-600"
                   style={{ "--num": stat.number } as React.CSSProperties}
                 ></span>
-                <span className="text-5xl md:text-6xl font-bold text-purple-600">{stat.suffix}</span>
+                <span className="text-6xl md:text-7xl font-bold text-purple-600">{stat.suffix}</span>
               </div>
-              <p className="text-xl text-gray-600 mt-2">{stat.label}</p>
+              <p className="text-2xl text-gray-600 mt-4 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="overflow-hidden card-shadow">
+            <Card key={index} className="overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="aspect-w-1 aspect-h-1">
                 <img 
                   src={testimonial.image} 
@@ -64,12 +64,12 @@ const ClientResults = () => {
                   className="object-cover w-full h-64"
                 />
               </div>
-              <div className="p-6">
-                <div className="text-yellow-500 mb-4">
+              <div className="p-8">
+                <div className="text-yellow-500 mb-4 text-xl">
                   {"★★★★★"}
                 </div>
-                <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                <div className="font-semibold">{testimonial.name}</div>
+                <p className="text-gray-700 italic mb-6 text-lg">"{testimonial.quote}"</p>
+                <div className="font-bold text-xl">{testimonial.name}</div>
                 <div className="text-sm text-gray-500">{testimonial.role}</div>
               </div>
             </Card>
@@ -77,7 +77,13 @@ const ClientResults = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="btn-primary">Join the Winning Clients</button>
+          <button className="premium-button px-12 py-6">
+            <span className="relative z-10 flex flex-col">
+              <span className="text-xl font-bold">Join the Winning Clients</span>
+              <span className="text-xs font-light opacity-80">free consultation</span>
+            </span>
+            <div className="absolute inset-0 opacity-0 hover:opacity-90 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] hover:blur-xl"></div>
+          </button>
         </div>
       </div>
     </section>

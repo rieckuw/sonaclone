@@ -30,7 +30,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-white">
+    <section id="how-it-works" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="section-title">How It Works</h2>
@@ -40,11 +40,11 @@ const HowItWorks = () => {
         </div>
 
         <div className="mb-20">
-          <div className="relative rounded-xl overflow-hidden">
+          <div className="relative rounded-2xl overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-gray-100 p-6 rounded-xl">
+              <div className="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold mb-4">Before</h3>
-                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
                   <img 
                     src="/lovable-uploads/db8d287c-752c-470e-9300-9b1c3ab85b6c.png" 
                     alt="Before AI transformation" 
@@ -54,9 +54,9 @@ const HowItWorks = () => {
                 <p className="mt-4 text-gray-600">Raw content without AI enhancement</p>
               </div>
 
-              <div className="bg-purple-50 p-6 rounded-xl">
+              <div className="bg-purple-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-2xl font-bold mb-4 text-purple-600">After</h3>
-                <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden">
                   <img 
                     src="/lovable-uploads/df09ba5d-7b58-46a2-8312-e2dc00cec563.png" 
                     alt="After AI transformation" 
@@ -71,21 +71,27 @@ const HowItWorks = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step) => (
-            <Card key={step.id} className="p-6 card-shadow">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-2xl mr-4">
+            <Card key={step.id} className="p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-100">
+              <div className="flex items-center mb-6">
+                <div className="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center text-2xl mr-4">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-bold">Step {step.id}</h3>
               </div>
-              <h4 className="text-lg font-semibold mb-2">{step.title}</h4>
+              <h4 className="text-xl font-bold mb-3">{step.title}</h4>
               <p className="text-gray-600">{step.description}</p>
             </Card>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <button className="btn-primary">Start Now</button>
+        <div className="mt-16 text-center">
+          <button className="premium-button px-12 py-6">
+            <span className="relative z-10 flex flex-col">
+              <span className="text-xl font-bold">Start Now</span>
+              <span className="text-xs font-light opacity-80">free consultation</span>
+            </span>
+            <div className="absolute inset-0 opacity-0 hover:opacity-90 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] hover:blur-xl"></div>
+          </button>
         </div>
       </div>
     </section>

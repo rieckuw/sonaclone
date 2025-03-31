@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 265 89% 78%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -97,11 +97,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-purple-500/30 relative overflow-hidden;
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-purple-500/40 relative overflow-hidden;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-gray-900;
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900;
   }
 
   .section-subtitle {
@@ -109,7 +109,7 @@
   }
 
   .card-shadow {
-    @apply shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply shadow-lg hover:shadow-2xl transition-all duration-500;
   }
 
   .brand-gradient {
@@ -137,6 +137,14 @@
 
   .gradient-border > div {
     @apply bg-white rounded-xl;
+  }
+  
+  .glow-on-hover {
+    @apply hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300;
+  }
+  
+  .premium-button {
+    @apply rounded-full bg-gradient-to-r from-purple-700 to-purple-500 hover:from-purple-800 hover:to-purple-600 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-purple-500/40 relative overflow-hidden;
   }
 }
 
@@ -176,4 +184,23 @@
 
 .animate-pulse-gradient {
   animation: pulse-gradient 8s ease-in-out infinite;
+}
+
+/* Background blur effect */
+.backdrop-blur-hover {
+  transition: backdrop-filter 0.3s ease;
+}
+
+.backdrop-blur-hover:hover {
+  backdrop-filter: blur(10px);
+}
+
+/* Premium glow effect */
+.premium-glow {
+  box-shadow: 0 0 15px 5px rgba(156, 39, 176, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.premium-glow:hover {
+  box-shadow: 0 0 25px 8px rgba(156, 39, 176, 0.5);
 }
