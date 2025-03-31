@@ -5,22 +5,22 @@ import { Button } from "@/components/ui/button";
 const painPoints = [
   {
     problem: "I don't have time to record videos.",
-    solution: "No recording needed—just 1-hour setup, then fully automated.",
+    solution: "Forget recording. One quick setup, and we create daily content for you—fully automated.",
     icon: "⏰"
   },
   {
-    problem: "I struggle with what to say.",
-    solution: "AI + human curation ensures your content is always engaging.",
-    icon: "💡"
-  },
-  {
-    problem: "I don't know what to say.",
-    solution: "We craft content in your authentic voice.",
+    problem: "I don't sound natural on camera.",
+    solution: "We clone your voice, face, and style—so real that no one will notice. Your audience sees you, effortlessly showing up every day.",
     icon: "🗣️"
   },
   {
-    problem: "I don't want to learn video editing or deal with posting.",
-    solution: "We edit, add B-roll, and post for you—effortless growth.",
+    problem: "I struggle with what to say.",
+    solution: "No more guesswork. AI + human expertise craft engaging scripts tailored to your niche.",
+    icon: "💡"
+  },
+  {
+    problem: "I don't want to edit or post videos.",
+    solution: "Done for you. We handle scripting, editing, B-roll, and posting—so you grow effortlessly.",
     icon: "📊"
   }
 ];
@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
             Brain-Wrecking Problems
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-            We solve the biggest personal branding challenges without wasting your time.
+            We eliminate the biggest struggles entrepreneurs face when trying to grow their online presence
           </p>
         </div>
 
@@ -55,7 +55,7 @@ const WhyChooseUs = () => {
 
         <div className="mt-24 text-center">
           <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
-            Get AI-Powered Personal Branding
+            Speak To Our Team Today
           </Button>
         </div>
       </div>
