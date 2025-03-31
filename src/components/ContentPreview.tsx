@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const contentPreviews = [
   {
     id: 1,
-    imageUrl: "/lovable-uploads/1b301cfc-3877-48b7-97fe-683f0f2a2765.png",
+    imageUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeG0wdTd0bjA1djNmZDZsdG9zbTFrNTdndGZhZmw1OGhhNndtcDhmbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TFUd6cS3rAaXnN3iJj/giphy.gif", // AI content example
     caption: "AI-Generated Content Examples"
   }
 ];

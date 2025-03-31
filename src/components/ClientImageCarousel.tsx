@@ -8,12 +8,12 @@ interface Client {
 }
 
 const clients: Client[] = [
-  { id: 1, image: '/lovable-uploads/a9a1d0a3-6f93-4805-8194-c4bc255868a7.png', name: 'Client 1' },
-  { id: 2, image: '/lovable-uploads/128ac83e-89d4-4558-84ec-981649709c13.png', name: 'Client 2' },
-  { id: 3, image: '/lovable-uploads/79fdd2ec-fd87-4aa5-88f1-2e00a0af35c6.png', name: 'Client 3' },
-  { id: 4, image: '/lovable-uploads/9a4adf7a-7210-486d-b9d2-dcfeb417f759.png', name: 'Client 4' },
-  { id: 5, image: '/lovable-uploads/77b875ad-4980-426f-bdef-9832da12e529.png', name: 'Client 5' },
-  { id: 6, image: '/lovable-uploads/2b926451-395e-434a-ae91-45ae015a0e8c.png', name: 'Client 6' },
+  { id: 1, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2tvMW5lYXBkbDkwaXAzeWRidWQwaW9yNDNvYno0OXFjenlxaHZzMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46Cy1rHbQ92uuLXa/giphy.gif', name: 'Client 1' },
+  { id: 2, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGxoYnNkbnpxa2x4bjdsemxlMXEweGk2OXRkeWgybWljamdsMXRvaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7ZeTmU77UlPyeR2w/giphy.gif', name: 'Client 2' },
+  { id: 3, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXhpYXFtcW93NHozbWNmMXlqcnZvbHByeTRmY3NsZnN5NHZkNGFueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPEqDGUULpEU0aQ/giphy.gif', name: 'Client 3' },
+  { id: 4, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGt6aHNsZnF5Z2FrbmluNDNianlnc295dXU1bjZmZGgwYjBiYjhlbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7bu3XilJ5BOiSGic/giphy.gif', name: 'Client 4' },
+  { id: 5, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExanE0eGY3Y2I2NGo2dDVqZ2d1bm1qYmFvZXl5anp6b3l2bGN2YnhjcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YqGeOQ0u6hB5u/giphy.gif', name: 'Client 5' },
+  { id: 6, image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2ZxMnluY24zcTdnYTc3emE0MXU1dmFyOWJsazBuYmIxYW1hbWJwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cXblnKXr2BQOaYnTni/giphy.gif', name: 'Client 6' },
 ];
 
 const ClientImageCarousel = () => {
