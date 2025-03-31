@@ -83,8 +83,8 @@ const ContentPreview: React.FC = () => {
               <span className="font-semibold">Before</span>
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-white font-medium">Original Content</p>
-              <p className="text-gray-300 text-sm">Typical self-recorded content</p>
+              <p className="text-white font-medium">Original</p>
+              <p className="text-gray-300 text-sm">2-minutes self-talking</p>
             </div>
           </div>
 
@@ -123,8 +123,8 @@ const ContentPreview: React.FC = () => {
               <span className="font-semibold">After</span>
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-              <p className="text-white font-medium">AI-Enhanced Content</p>
-              <p className="text-gray-300 text-sm">Professionally edited & enhanced</p>
+              <p className="text-white font-medium">AI-Generated</p>
+              <p className="text-gray-300 text-sm">Exact clone of yourself</p>
             </div>
           </div>
         </div>
