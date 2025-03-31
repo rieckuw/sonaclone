@@ -15,17 +15,19 @@ const Hero = () => {
             <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent inline-block text-4xl md:text-5xl lg:text-6xl">
               AI Pertama.
             </span><br />
-            <span className="inline-block text-2xl md:text-3xl lg:text-4xl mt-2">30 Posts/Month - 1 Hour Setup - Grow 10x Faster</span>
+            <span className="inline-block text-2xl md:text-3xl lg:text-4xl mt-2">30 Posts/Month 1 Hour Setup Grow 10x Faster</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             No time to create content? No problem. We build your personal brand with AI-generated, high-quality posts that position you as an industry leader—without you lifting a finger.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="btn-primary text-lg relative overflow-hidden group">
-              <span className="relative z-10">Book a Free Strategy Call</span>
+          <div className="flex justify-center">
+            <Button className="btn-primary text-lg py-6 px-8 relative overflow-hidden group">
+              <span className="relative z-10 flex flex-col">
+                <span className="text-xl font-bold">Speak with our team</span>
+                <span className="text-sm font-medium opacity-90">schedule your free setup now</span>
+              </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-500 group-hover:from-purple-800 group-hover:to-purple-600 transition-all duration-500"></div>
             </Button>
-            <Button variant="outline" className="text-lg border-purple-300 text-purple-600 hover:bg-purple-50">Learn More</Button>
           </div>
           <div className="mt-8 text-gray-500">
             Trusted by Jakarta startup founders & entrepreneurs scaling their online presence effortlessly.

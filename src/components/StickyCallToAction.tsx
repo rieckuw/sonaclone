@@ -25,8 +25,11 @@ const StickyCallToAction = () => {
             <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">Your personal brand is your most valuable asset.</span> Let's build it—without you lifting a finger.
           </p>
         </div>
-        <Button className="relative group overflow-hidden">
-          <span className="relative z-10 font-medium">Book a Free Strategy Call</span>
+        <Button className="relative group overflow-hidden px-6 py-5">
+          <span className="relative z-10 flex flex-col">
+            <span className="font-bold">Speak with our team</span>
+            <span className="text-xs font-medium opacity-90">schedule your free setup now</span>
+          </span>
           <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-500 group-hover:from-purple-800 group-hover:to-purple-600 transition-all duration-500"></div>
         </Button>
       </div>
