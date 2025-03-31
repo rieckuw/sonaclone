@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -106,12 +105,12 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-white font-bold text-lg mb-1 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 flex flex-col justify-end p-4">
+                  <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
+                    <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
                       {clientInfo[index].name}
                     </div>
-                    <div className="text-purple-300 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity delay-200 duration-300">
+                    <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
                       {clientInfo[index].title}
                     </div>
                   </div>
@@ -127,12 +126,12 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
-                  <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <div className="text-white font-bold text-lg mb-1 opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 flex flex-col justify-end p-4">
+                  <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
+                    <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
                       {clientInfo[index].name}
                     </div>
-                    <div className="text-purple-300 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity delay-200 duration-300">
+                    <div className="text-purple-300 text-xs font-medium group-hover:text-white transition-colors duration-300">
                       {clientInfo[index].title}
                     </div>
                   </div>
