@@ -22,11 +22,11 @@ const StickyCallToAction = () => {
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
         <div className="text-center md:text-left mb-4 md:mb-0">
           <p className="font-semibold text-lg">
-            <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">Personal brand Anda adalah aset paling berharga.</span> Mari kita bangun—tanpa Anda perlu repot.
+            <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">Your personal brand is your most valuable asset.</span> Let's build it—without you lifting a finger.
           </p>
         </div>
         <Button className="relative group overflow-hidden">
-          <span className="relative z-10 font-medium">Jadwalkan Konsultasi Gratis</span>
+          <span className="relative z-10 font-medium">Book a Free Strategy Call</span>
           <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-500 group-hover:from-purple-800 group-hover:to-purple-600 transition-all duration-500"></div>
         </Button>
       </div>
