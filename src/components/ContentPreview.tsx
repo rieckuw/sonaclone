@@ -21,13 +21,17 @@ const ContentPreview: React.FC = () => {
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <iframe 
-                  src="https://iframe.mediadelivery.net/embed/403899/26a748c8-73fa-4e18-9e8c-3ae05aa67292?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
-                  loading="lazy" 
-                  className="w-full h-full absolute inset-0 border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-                  allowFullScreen={true}
-                ></iframe>
+                <video 
+                  onContextMenu={() => false}
+                  controlsList="nodownload" 
+                  controls 
+                  poster="https://rickypranaya.publit.io/file/0401.jpg"
+                  playsInline
+                  className="w-full h-full absolute inset-0"
+                >
+                  <source src="https://rickypranaya.publit.io/file/h_480/0401.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -43,13 +47,17 @@ const ContentPreview: React.FC = () => {
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <iframe 
-                  src="https://iframe.mediadelivery.net/embed/403899/8fccc207-7343-432c-9f03-210222a42e74?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
-                  loading="lazy" 
-                  className="w-full h-full absolute inset-0 border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-                  allowFullScreen={true}
-                ></iframe>
+                <video 
+                  onContextMenu={() => false}
+                  controlsList="nodownload" 
+                  controls 
+                  poster="https://rickypranaya.publit.io/file/dennish.jpg"
+                  playsInline
+                  className="w-full h-full absolute inset-0"
+                >
+                  <source src="https://rickypranaya.publit.io/file/h_480/pitching-4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
