@@ -118,26 +118,6 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      
-      {/* Stats */}
-      <div className="container mx-auto px-4 mt-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
-          <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">500Hr+</div>
-            <div className="text-xl text-gray-300">Time Saved</div>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">30+</div>
-            <div className="text-xl text-gray-300">Posts Per Month</div>
-          </div>
-          
-          <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">10X</div>
-            <div className="text-xl text-gray-300">Credibility</div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
