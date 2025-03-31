@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -25,7 +24,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-24 pb-24 min-h-screen flex items-center relative overflow-hidden">
+    <section className="pt-20 pb-20 min-h-screen flex items-center relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[#0e0118] -z-20"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
@@ -42,35 +41,34 @@ const Hero = () => {
       ))}
       
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-6xl mx-auto mb-14">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight text-white">
-            Your Personal Brand,<br/>
+        <div className="text-center max-w-5xl mx-auto mb-8">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight text-white">
+            Personal Branding Agency,<br/>
             <span className="bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
               100% AI-Powered.
             </span>
           </h1>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">
             You Never Have to Record Again.
           </h2>
           
-          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
             We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
           </p>
           
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-8">
             <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
-              Get Started in 1 Hour
+              Schedule free setup now
             </Button>
           </div>
           
           {/* Phone-style content carousel (9:16 ratio) */}
-          <div className="w-full overflow-hidden mt-10">
+          <div className="w-full overflow-hidden mt-12">
             <div 
               ref={scrollRef} 
               className="flex space-x-4 phoneCarousel"
             >
-              {/* First set of images */}
               {clientImages.map((image, index) => (
                 <div key={`img-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
                   <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
@@ -85,7 +83,6 @@ const Hero = () => {
                   </div>
                 </div>
               ))}
-              {/* Duplicate set for seamless looping */}
               {clientImages.map((image, index) => (
                 <div key={`img-dup-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
                   <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
