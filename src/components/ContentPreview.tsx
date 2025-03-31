@@ -1,7 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { ArrowRight, Play, ArrowLeftRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
 
 const ContentPreview: React.FC = () => {
@@ -39,7 +38,6 @@ const ContentPreview: React.FC = () => {
     }
   };
 
-  // Intersection Observer to trigger animations when section is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -71,7 +69,6 @@ const ContentPreview: React.FC = () => {
       className="py-32 bg-[#0e0118] relative overflow-hidden"
       ref={sectionRef}
     >
-      {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 bg-purple-600/20 rounded-full blur-[120px] animate-pulse-slow -z-0"></div>
       <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-[#e4ff1a]/20 rounded-full blur-[120px] animate-pulse-slow -z-0"></div>
       
@@ -86,16 +83,14 @@ const ContentPreview: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto relative">
-          {/* Central arrow between videos */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className={`bg-[#e4ff1a] p-4 rounded-full shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] 
+            <div className={`bg-purple-600 p-4 rounded-full shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] 
                           transition-all duration-700 
                           ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
-              <ArrowLeftRight size={32} className="text-[#0e0118]" />
+              <ArrowRight size={32} className="text-white" />
             </div>
           </div>
           
-          {/* Before Example */}
           <div 
             className={`relative overflow-hidden rounded-xl max-w-[320px] mx-auto w-full transition-all duration-1000 
                       ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
@@ -141,22 +136,8 @@ const ContentPreview: React.FC = () => {
               <p className="text-white font-medium">Original</p>
               <p className="text-gray-300 text-sm">2-minutes self-talking</p>
             </div>
-            
-            {/* Animated indicator pointing to the Before video */}
-            <div className={`absolute -left-6 md:-left-12 top-4 transition-all duration-700 
-                          ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="flex items-center">
-                <div className="text-white bg-[#7e22ce] p-1 md:p-2 rounded-full">
-                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transform rotate-180" />
-                </div>
-                <div className="ml-2 hidden md:block bg-[#7e22ce] text-white px-3 py-1 rounded-md text-sm">
-                  Original Recording
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* After Example */}
           <div 
             className={`relative overflow-hidden rounded-xl max-w-[320px] mx-auto w-full transition-all duration-1000 
                       ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
@@ -202,24 +183,7 @@ const ContentPreview: React.FC = () => {
               <p className="text-white font-medium">AI-Generated</p>
               <p className="text-gray-300 text-sm">Exact clone of yourself</p>
             </div>
-            
-            {/* Animated indicator pointing to the After video */}
-            <div className={`absolute -right-6 md:-right-12 top-4 transition-all duration-700 
-                          ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="flex items-center flex-row-reverse">
-                <div className="text-white bg-[#7e22ce] p-1 md:p-2 rounded-full">
-                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6" />
-                </div>
-                <div className="mr-2 hidden md:block bg-[#7e22ce] text-white px-3 py-1 rounded-md text-sm">
-                  AI-Generated Clone
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        
-        <div className={`mt-12 text-center transition-all duration-1000 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-white/70 text-lg italic">See how our AI transforms a simple recording into professional-grade content</p>
         </div>
       </div>
     </section>
