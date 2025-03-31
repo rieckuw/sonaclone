@@ -21,13 +21,12 @@ const ContentPreview: React.FC = () => {
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <iframe 
-                  src="https://iframe.mediadelivery.net/embed/403899/26a748c8-73fa-4e18-9e8c-3ae05aa67292?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
-                  loading="lazy" 
-                  className="w-full h-full absolute inset-0 border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-                  allowFullScreen={true}
-                ></iframe>
+                <video 
+                  src="https://customer-jzkz9ygpbw3mwmj8.cloudflarestream.com/26a748c8-73fa-4e18-9e8c-3ae05aa67292/watch"
+                  className="w-full h-full absolute inset-0 object-cover"
+                  controls
+                  preload="auto"
+                />
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -43,13 +42,12 @@ const ContentPreview: React.FC = () => {
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <iframe 
-                  src="https://iframe.mediadelivery.net/embed/403899/4c5edcf2-d59e-4023-8c23-98f5de2ee749?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
-                  loading="lazy" 
-                  className="w-full h-full absolute inset-0 border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
-                  allowFullScreen={true}
-                ></iframe>
+                <video 
+                  src="https://customer-jzkz9ygpbw3mwmj8.cloudflarestream.com/4c5edcf2-d59e-4023-8c23-98f5de2ee749/watch"
+                  className="w-full h-full absolute inset-0 object-cover"
+                  controls
+                  preload="auto"
+                />
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
