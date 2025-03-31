@@ -128,12 +128,6 @@ const ContentPreview: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="mt-16 text-center">
-          <button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
-            See More Examples
-          </button>
-        </div>
       </div>
     </section>
   );
