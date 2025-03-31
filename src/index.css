@@ -33,7 +33,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 265 89% 78%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -97,7 +97,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden;
+    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-purple-500/30 relative overflow-hidden;
   }
 
   .section-title {
@@ -122,21 +122,21 @@
   }
 
   .gradient-card {
-    @apply relative overflow-hidden border border-purple-100 rounded-xl;
+    @apply relative overflow-hidden border border-purple-100 rounded-2xl;
     background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(240,234,255,1) 100%);
   }
 
   .glass-card {
-    @apply backdrop-blur-sm bg-white/60 border border-white/20 rounded-xl shadow-lg;
+    @apply backdrop-blur-sm bg-white/60 border border-white/20 rounded-2xl shadow-lg;
   }
 
   .gradient-border {
-    @apply relative rounded-lg p-[1px] overflow-hidden;
+    @apply relative rounded-xl p-[1px] overflow-hidden;
     background: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
   }
 
   .gradient-border > div {
-    @apply bg-white rounded-lg;
+    @apply bg-white rounded-xl;
   }
 }
 
