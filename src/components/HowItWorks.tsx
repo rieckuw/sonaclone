@@ -57,7 +57,7 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300">
+          <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
             Start Now – 1-Hour Setup
           </Button>
         </div>

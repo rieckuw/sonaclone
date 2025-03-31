@@ -41,20 +41,20 @@ const WhyChooseUs = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {painPoints.map((point, index) => (
-            <Card key={index} className="bg-[#e4ff1a] overflow-hidden rounded-2xl transition-all duration-300">
+            <Card key={index} className="bg-[#7e22ce] overflow-hidden rounded-2xl transition-all duration-300">
               <div className="p-12">
                 <div className="flex items-center mb-6">
                   <span className="text-4xl mr-4">{point.icon}</span>
-                  <h3 className="font-bold text-2xl text-black">{point.problem}</h3>
+                  <h3 className="font-bold text-2xl text-white">{point.problem}</h3>
                 </div>
-                <p className="text-xl text-black/80">{point.solution}</p>
+                <p className="text-xl text-white/80">{point.solution}</p>
               </div>
             </Card>
           ))}
         </div>
 
         <div className="mt-24 text-center">
-          <Button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300">
+          <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
             Get AI-Powered Personal Branding
           </Button>
         </div>

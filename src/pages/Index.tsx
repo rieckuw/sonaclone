@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import ContentPreview from "@/components/ContentPreview";
 import ClientResults from "@/components/ClientResults";
 import StickyCallToAction from "@/components/StickyCallToAction";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <HowItWorks />
+      <ContentPreview />
       <WhyChooseUs />
       <ClientResults />
       <div className="bg-[#1c0639] py-32 text-center">
@@ -20,7 +22,7 @@ const Index = () => {
           Have Some Questions?<br/>
           Get In Touch
         </h2>
-        <button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300 mt-12">
+        <button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 mt-12">
           Book a call
         </button>
       </div>

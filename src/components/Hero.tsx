@@ -39,7 +39,7 @@ const Hero = () => {
         <div className="text-center max-w-6xl mx-auto mb-14">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight text-white">
             Your Personal Brand,<br/>
-            <span className="bg-gradient-to-r from-[#e4ff1a] to-[#eeff70] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
               100% AI-Powered.
             </span>
           </h1>
@@ -53,7 +53,7 @@ const Hero = () => {
           </p>
           
           <div className="flex justify-center">
-            <Button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300">
+            <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
               Get Started in 1 Hour
             </Button>
           </div>

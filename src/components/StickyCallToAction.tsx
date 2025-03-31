@@ -25,7 +25,7 @@ const StickyCallToAction = () => {
             Build your brand without lifting a finger. Just 1-hour setup, and we handle everything.
           </p>
         </div>
-        <Button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-lg font-bold px-8 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300">
+        <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-lg font-bold px-8 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
           Book a Free Strategy Call
         </Button>
       </div>
