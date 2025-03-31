@@ -12,6 +12,7 @@ const ContentPreview: React.FC = () => {
   const beforeVideoRef = useRef<HTMLVideoElement>(null);
   const afterVideoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const [animate, setAnimate] = useState(false);
 
   const handleBeforePlay = () => {
     if (beforeVideoRef.current && !beforePlaying) {
@@ -44,6 +45,7 @@ const ContentPreview: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
+          setTimeout(() => setAnimate(true), 400);
         }
       },
       {
@@ -84,11 +86,10 @@ const ContentPreview: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto relative">
-          <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className={`bg-purple-600 p-4 rounded-full shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] 
-                          transition-all duration-700 
-                          ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
-              <ArrowRight size={32} className="text-white" />
+          <div className={`hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20
+                          transition-all duration-700 ${animate ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+            <div className="bg-purple-600 p-4 rounded-full shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] hover:shadow-[0_0_35px_10px_rgba(126,34,206,0.6)] transition-all duration-300 animate-pulse-slow">
+              <ArrowRight size={32} className="text-white animate-pulse-slow" />
             </div>
           </div>
           
@@ -98,7 +99,7 @@ const ContentPreview: React.FC = () => {
             onMouseEnter={() => setHovered('before')}
             onMouseLeave={() => setHovered(null)}
           >
-            <div className="relative w-full">
+            <div className="relative w-full transform hover:scale-[1.02] transition-all duration-300">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={beforeVideoRef}
@@ -123,7 +124,7 @@ const ContentPreview: React.FC = () => {
                     onClick={handleBeforePlay}
                   >
                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm 
-                                hover:bg-white/30 transition-all duration-300 animate-pulse-gradient">
+                                hover:bg-white/30 transition-all duration-300 animate-pulse-gradient hover:scale-110">
                       <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                     </div>
                   </div>
@@ -145,7 +146,7 @@ const ContentPreview: React.FC = () => {
             onMouseEnter={() => setHovered('after')}
             onMouseLeave={() => setHovered(null)}
           >
-            <div className="relative w-full">
+            <div className="relative w-full transform hover:scale-[1.02] transition-all duration-300">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
                   ref={afterVideoRef}
@@ -170,7 +171,7 @@ const ContentPreview: React.FC = () => {
                     onClick={handleAfterPlay}
                   >
                     <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm 
-                                hover:bg-white/30 transition-all duration-300 animate-pulse-gradient">
+                                hover:bg-white/30 transition-all duration-300 animate-pulse-gradient hover:scale-110">
                       <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                     </div>
                   </div>
