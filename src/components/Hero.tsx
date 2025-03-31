@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -29,8 +28,12 @@ const Hero = () => {
       {/* Dark background base */}
       <div className="absolute inset-0 bg-[#0e0118] -z-30"></div>
       
-      {/* Simple central purple glow with pulse animation */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[60vh] rounded-full bg-purple-600 opacity-20 blur-[120px] animate-pulse-slow -z-20"></div>
+      {/* Main purple glow with increased opacity and size */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[70vh] rounded-full bg-purple-600 opacity-30 blur-[100px] animate-pulse-slow -z-20"></div>
+      
+      {/* Additional smaller glows for more effect */}
+      <div className="absolute left-[20%] top-[30%] w-[40vw] h-[40vh] rounded-full bg-purple-500 opacity-20 blur-[120px] animate-pulse-slow -z-20"></div>
+      <div className="absolute right-[25%] bottom-[20%] w-[50vw] h-[30vh] rounded-full bg-purple-700 opacity-25 blur-[80px] animate-pulse-slow -z-20"></div>
       
       {/* Background gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
