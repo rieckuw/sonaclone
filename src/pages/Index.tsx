@@ -19,11 +19,11 @@ const Index = () => {
       <Footer />
       
       {/* Add smooth scrolling behavior */}
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         html {
           scroll-behavior: smooth;
         }
-      `}</style>
+      `}} />
     </div>
   );
 };

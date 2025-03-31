@@ -8,6 +8,9 @@ const BookingSection = () => {
   // State to track if Calendly script is loaded
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
   
+  // WhatsApp link
+  const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
+  
   useEffect(() => {
     // Add Calendly script to the document
     const script = document.createElement('script');
@@ -23,7 +26,7 @@ const BookingSection = () => {
   }, []);
   
   return (
-    <section className="py-32 bg-[#0e0118]">
+    <section id="booking" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -126,9 +129,14 @@ const BookingSection = () => {
                   Not ready for a call?
                 </div>
                 
-                <Button className="w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white text-lg font-bold py-6 rounded-xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
+                <a 
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="block w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white text-lg font-bold py-6 rounded-xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 text-center"
+                >
                   Chat with us on WhatsApp
-                </Button>
+                </a>
               </div>
             </div>
           </div>

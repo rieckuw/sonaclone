@@ -21,6 +21,7 @@ const Footer = () => {
               <li><a href="#how-it-works" className="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
               <li><a href="#why-choose-us" className="text-gray-400 hover:text-white transition-colors">Solutions</a></li>
               <li><a href="#content-preview" className="text-gray-400 hover:text-white transition-colors">Examples</a></li>
+              <li><a href="#booking" className="text-gray-400 hover:text-white transition-colors">Demo Call</a></li>
             </ul>
           </div>
           
@@ -34,15 +35,10 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+        <div className="border-t border-gray-800 mt-8 pt-6 flex justify-center">
+          <p className="text-gray-500 text-sm">
             © {currentYear} Sonaclone Agency. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">Twitter</a>
-            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">LinkedIn</a>
-            <a href="#" className="text-gray-400 hover:text-[#a855f7] transition-colors">Instagram</a>
-          </div>
         </div>
       </div>
     </footer>
