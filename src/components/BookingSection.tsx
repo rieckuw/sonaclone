@@ -46,9 +46,9 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Updated Calendly inline widget with new background color (0c0117) */}
+                {/* Updated Calendly inline widget with dark gray background color (1a1a1a) */}
                 <div className="calendly-inline-widget" 
-                  data-url="https://calendly.com/ricky-sonaclone/demo-call?background_color=0c0117&text_color=ffffff&primary_color=7429c6" 
+                  data-url="https://calendly.com/ricky-sonaclone/demo-call?background_color=1a1a1a&text_color=ffffff&primary_color=7429c6" 
                   style={{ minWidth: "320px", height: "700px" }}>
                 </div>
               </div>
