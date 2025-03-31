@@ -21,12 +21,14 @@ const BookingSection = () => {
     
     return () => {
       // Clean up when component unmounts
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
   
   return (
-    <section id="booking" className="py-20 md:py-32 bg-[#0e0118]">
+    <section id="booking" className="py-16 md:py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -49,10 +51,15 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Updated Calendly inline widget with responsive height */}
-                <div className="calendly-inline-widget" 
-                  data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=000000&primary_color=7429c6" 
-                  style={{ minWidth: "320px", height: "600px" }}>
+                {/* Improved Calendly inline widget with better mobile responsiveness */}
+                <div className="calendly-inline-widget w-full overflow-hidden" 
+                  data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=000000&primary_color=7429c6&hide_gdpr_banner=1" 
+                  style={{ 
+                    minWidth: "320px", 
+                    height: "750px", 
+                    border: "none",
+                    borderRadius: "8px"
+                  }}>
                 </div>
               </div>
             </div>
@@ -72,7 +79,7 @@ const BookingSection = () => {
                 
                 <div className="text-center mb-8">
                   <h3 className="text-[#ff3ebc] text-lg md:text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
-                  <h2 className="text-white text-3xl md:text-5xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
+                  <h2 className="text-white text-2xl md:text-4xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
                 </div>
                 
                 <div className="mb-8">
