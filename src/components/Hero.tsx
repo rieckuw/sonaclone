@@ -85,8 +85,8 @@ const Hero = () => {
               {/* Glow effect */}
               <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#7e22ce] blur-xl"></span>
               
-              {/* Text content - CHANGED TO CAMELCASE */}
-              <span className="relative z-10">speakToOurTeamNow</span>
+              {/* Text content - UPDATED TEXT */}
+              <span className="relative z-10">Speak To Our Team Today</span>
             </button>
           </div>
         </div>
