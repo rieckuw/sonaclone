@@ -4,12 +4,12 @@ import { useState, useEffect, useRef } from 'react';
 
 // GIFs for carousel
 const clientImages = [
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWptMGs5enVpYTIwdG42djBtZG80NHd3ZnE3MGZkZGRvNWtkcWVhZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPEqDGUULpEU0aQ/giphy.gif", // Business/presentation GIF
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnhueG01dTF4ZzN6bDRueHk5d3h0dDhkdmQzbmVyZ2hzcWo3M2R5OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/JIX9t2j0ZTN9S/giphy.gif", // Tech-related GIF
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXkxamhyYWhzaGI3azk5MGc3dWE1cmhvbDh0YnhxcXEzb2E5eGNueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l3q2FnW3yG3MfFDri/giphy.gif", // Social media/content GIF
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzJvZnV5cDU0OWMxNjY2YXZiN2JrcmVybHh0YjBkdngwcm9vaDJpbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT5LMWNOjGqJzUfDK8/giphy.gif", // Tech/digital marketing GIF
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmp1bndxb3l6aHNud3A3ZjlnM2NtZXAwaHI1OXdyYzEzc3gyZWdmeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xThuWu82QD3pj4wvEQ/giphy.gif", // Digital/AI concept GIF
-  "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExemJiYmluaWN5bXdvNnVjdm1vYXlzdTRwZmQwODFvcHRvZXQwdW95bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlNaQ6gWfllcjDO/giphy.gif", // Professional growth concept GIF
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
+  "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjQ4bnMwMnoyaTloZ2VucG11bjNkamNiNmY2cTZ4YWJkNnY2ZzkybCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1wsz3cEtCaRRUpRwVl/giphy.gif",
 ];
 
 const Hero = () => {
