@@ -19,9 +19,9 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0e0118]/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center">
-            <span className="text-3xl font-bold text-white">Sonaclone</span>
-            <span className="ml-1 text-xl font-light text-gray-300">Agency</span>
+          <a href="#" className="flex items-center group">
+            <span className="text-3xl font-bold text-white tracking-tight">Sonaclone</span>
+            <span className="ml-1 text-xl font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans">Agency</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -101,3 +101,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
