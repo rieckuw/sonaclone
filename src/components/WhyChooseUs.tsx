@@ -31,8 +31,7 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-24">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
-            No-Brainer Solutions For<br/>
-            Brain-Wrecking Problems
+            Personal Branding Without Headache
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
             We eliminate the biggest struggles entrepreneurs face when trying to grow their online presence
