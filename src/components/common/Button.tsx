@@ -12,11 +12,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'default', size = 'md', children, className = '', href, isExternal = false, ...props }, ref) => {
     
-    const baseStyles = "rounded-full font-bold transition-all duration-300 relative overflow-hidden";
+    const baseStyles = "rounded-full font-bold transition-all duration-300";
     
     const variantStyles = {
-      default: "bg-[#e4ff1a] hover:bg-[#eeff70] text-black group",
-      outline: "bg-transparent border-2 border-[#e4ff1a] text-[#e4ff1a] hover:bg-[#e4ff1a]/10 group"
+      default: "bg-[#e4ff1a] hover:bg-[#eeff70] text-black hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)]",
+      outline: "bg-transparent border-2 border-[#e4ff1a] text-[#e4ff1a] hover:bg-[#e4ff1a]/10"
     };
     
     const sizeStyles = {
@@ -36,13 +36,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
         >
-          <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <span className="absolute inset-0 w-full h-full bg-[#e4ff1a] blur-md"></span>
-          </span>
-          <span className="relative z-10 inline-flex items-center">
-            {children}
-            <span className="ml-1 transform group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </span>
+          {children}
         </a>
       );
     }
@@ -64,13 +58,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
         onClick={handleClick}
       >
-        <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <span className="absolute inset-0 w-full h-full bg-[#e4ff1a] blur-md"></span>
-        </span>
-        <span className="relative z-10 inline-flex items-center">
-          {children}
-          <span className="ml-1 transform translate-x-0 opacity-0 group-hover:translate-x-1 group-hover:opacity-100 transition-all duration-300">→</span>
-        </span>
+        {children}
       </button>
     );
   }
