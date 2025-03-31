@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 
 // Images for carousel
 const clientImages = [
-  "/lovable-uploads/a9a1d0a3-6f93-4805-8194-c4bc255868a7.png",
-  "/lovable-uploads/128ac83e-89d4-4558-84ec-981649709c13.png",
-  "/lovable-uploads/79fdd2ec-fd87-4aa5-88f1-2e00a0af35c6.png",
-  "/lovable-uploads/9a4adf7a-7210-486d-b9d2-dcfeb417f759.png",
-  "/lovable-uploads/77b875ad-4980-426f-bdef-9832da12e529.png",
-  "/lovable-uploads/2b926451-395e-434a-ae91-45ae015a0e8c.png",
+  "/lovable-uploads/6d9f6631-e474-4772-a083-de4e424186d0.png",
+  "/lovable-uploads/a56c3ef3-07d4-4804-86f3-2c1544d45fe8.png",
+  "/lovable-uploads/7b304f8d-fd05-4f3b-b8fa-c591abcba59d.png",
+  "/lovable-uploads/3ec6b585-af51-437a-b1df-5465a7a4e318.png", 
+  "/lovable-uploads/16aaee08-962d-49fc-98fa-82d3792d18c8.png",
+  "/lovable-uploads/4588575c-c722-4999-b3c2-470cdfa13556.png",
 ];
 
 const Hero = () => {
@@ -29,11 +29,16 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[#0e0118] -z-20"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
       
-      {/* Background image with low opacity */}
-      <div 
-        className="absolute inset-0 opacity-10 -z-10 transition-opacity duration-1000 bg-center bg-cover"
-        style={{ backgroundImage: `url(${clientImages[currentImageIndex]})` }}
-      ></div>
+      {/* Background image with animation */}
+      {clientImages.map((image, index) => (
+        <div 
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 bg-center bg-cover -z-10 ${
+            index === currentImageIndex ? 'opacity-15' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${image})` }}
+        ></div>
+      ))}
       
       <div className="container mx-auto px-4">
         <div className="text-center max-w-6xl mx-auto mb-14">
@@ -52,15 +57,33 @@ const Hero = () => {
             We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
           </p>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-20">
             <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
               Get Started in 1 Hour
             </Button>
           </div>
+          
+          {/* Client Content Example Gallery */}
+          <div className="mt-16">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {clientImages.map((image, index) => (
+                <div key={index} className="relative group overflow-hidden rounded-xl">
+                  <img 
+                    src={image} 
+                    alt={`AI-generated content ${index + 1}`} 
+                    className="w-full h-72 object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32 text-center text-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center text-white">
           <div className="flex flex-col items-center">
             <div className="text-6xl md:text-7xl font-bold mb-2">500Hr+</div>
             <div className="text-xl text-gray-300">Time Saved</div>
