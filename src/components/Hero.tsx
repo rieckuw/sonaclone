@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -105,7 +106,7 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 flex flex-col justify-end p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
                   <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
                     <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
                       {clientInfo[index].name}
@@ -126,7 +127,7 @@ const Hero = () => {
                   alt={`${clientInfo[index].name} - ${clientInfo[index].title}`} 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-purple-900/70 to-purple-800/50 flex flex-col justify-end p-4">
+                <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4">
                   <div className="transition-transform duration-300 group-hover:scale-105 group-hover:translate-y-[-4px]">
                     <div className="text-white font-bold text-lg mb-1 group-hover:text-purple-200 transition-colors duration-300">
                       {clientInfo[index].name}
