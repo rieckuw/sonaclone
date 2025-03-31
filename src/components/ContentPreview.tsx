@@ -1,8 +1,37 @@
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Card } from '@/components/ui/card';
+import { Play, Pause } from 'lucide-react';
 
 const ContentPreview: React.FC = () => {
+  const [beforeIsPlaying, setBeforeIsPlaying] = useState(false);
+  const [afterIsPlaying, setAfterIsPlaying] = useState(false);
+  const beforeVideoRef = useRef<HTMLVideoElement>(null);
+  const afterVideoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleBeforeVideo = () => {
+    if (beforeVideoRef.current) {
+      if (beforeIsPlaying) {
+        beforeVideoRef.current.pause();
+      } else {
+        beforeVideoRef.current.play();
+      }
+      setBeforeIsPlaying(!beforeIsPlaying);
+    }
+  };
+
+  const toggleAfterVideo = () => {
+    if (afterVideoRef.current) {
+      if (afterIsPlaying) {
+        afterVideoRef.current.pause();
+      } else {
+        afterVideoRef.current.play();
+      }
+      setAfterIsPlaying(!afterIsPlaying);
+    }
+  };
+
   return (
     <section id="content-preview" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
@@ -18,13 +47,24 @@ const ContentPreview: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            <div className="relative w-full">
+            <div className="relative w-full cursor-pointer" onClick={toggleBeforeVideo}>
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <img 
-                  src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy.gif"
-                  alt="Before AI Enhancement"
+                <video 
+                  ref={beforeVideoRef}
+                  src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy.mp4"
+                  poster="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWR0b3F0aW5zc3B1M3M3bjFidWR4YXptaWo0ZjFjZ3Ftc3llNmo2NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7kjQzYa60nZdiKDBta/giphy_s.gif"
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover absolute inset-0"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {!beforeIsPlaying && (
+                    <div className="bg-black/50 rounded-full p-3">
+                      <Play className="w-8 h-8 text-white" />
+                    </div>
+                  )}
+                </div>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -38,13 +78,24 @@ const ContentPreview: React.FC = () => {
 
           {/* After Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            <div className="relative w-full">
+            <div className="relative w-full cursor-pointer" onClick={toggleAfterVideo}>
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <img 
-                  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.gif"
-                  alt="After AI Enhancement"
+                <video 
+                  ref={afterVideoRef}
+                  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.mp4"
+                  poster="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy_s.gif"
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-full object-cover absolute inset-0"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {!afterIsPlaying && (
+                    <div className="bg-black/50 rounded-full p-3">
+                      <Play className="w-8 h-8 text-white" />
+                    </div>
+                  )}
+                </div>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
