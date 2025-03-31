@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -29,7 +30,6 @@ const BookingSection = () => {
             {/* Left column - Calendly iframe */}
             <div className="bg-[#1c0639] p-8 md:p-12">
               <div className="mb-6">
-                <h3 className="text-gray-300 text-xl mb-2">Sonaclone Media</h3>
                 <h2 className="text-3xl font-bold text-white mb-4">Demo Call</h2>
                 
                 <div className="flex items-center gap-2 text-gray-300 mb-3">
