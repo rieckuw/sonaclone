@@ -64,7 +64,7 @@ const BookingSection = () => {
                 <div className="mb-8 flex items-center justify-center">
                   <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#7e22ce]">
                     <img 
-                      src="/lovable-uploads/6fe15fba-8b92-4a32-9e2f-eb821411149b.png" 
+                      src="/lovable-uploads/582b24c1-ef41-4ede-a202-e5ff8be9e0d1.png" 
                       alt="Profile" 
                       className="w-full h-full object-cover"
                     />
@@ -72,69 +72,66 @@ const BookingSection = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH DANY</h3>
-                  <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">Free 15-Minute Demo Call</h2>
+                  <h3 className="text-[#ff3ebc] text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
+                  <h2 className="text-white text-4xl md:text-5xl font-bold mt-2">📅 Free 15-Minute Strategy Call</h2>
                 </div>
                 
                 <div className="mb-8">
                   <p className="text-gray-300 leading-relaxed">
-                    By the end of this Audit call, you will have a clear
-                    understanding of the next steps you can take for your
-                    business to start generating consistent and reliable results
-                    online with Funnels & Paid Advertising.
+                    By the end of this strategy call, you will have a clear
+                    understanding of how to scale your personal brand effortlessly
+                    with AI-generated content—without recording daily.
                   </p>
                   
                   <p className="text-gray-300 leading-relaxed mt-4">
-                    Find a time on Dany's calendar to schedule your call today
-                    and we look forward to speaking to you soon!
+                    Find a time on Ricky's calendar to schedule your call today.
+                    We look forward to helping you build your authority online!
                   </p>
                 </div>
                 
                 <div className="mb-8">
-                  <h3 className="text-[#ff3ebc] text-xl font-bold mb-4">THIS AUDIT CALL IS PERFECT FOR:</h3>
+                  <h3 className="text-[#ff3ebc] text-xl font-bold mb-4">THIS STRATEGY CALL IS PERFECT FOR:</h3>
                   
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300">
-                        Businesses looking to convert their current website into a
-                        <span className="font-bold text-white"> high quality & streamlined funnel format.</span>
+                        Busy entrepreneurs & founders who want to build a strong personal brand but don't have time to record content.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300">
-                        Businesses looking to take their offline business
-                        <span className="font-bold text-white"> online</span>
+                        Coaches & consultants looking to attract more leads and position themselves as industry experts.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300">
-                        Businesses looking to understand their
-                        <span className="font-bold text-white"> increased revenue potential</span> with funnels & conversion rate optimization.
+                        CEOs & executives who need consistent social media presence without spending hours on content creation.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300">
-                        Businesses looking to
-                        <span className="font-bold text-white"> maximize their conversion rates</span> &
-                        average order value.
+                        Anyone struggling with consistency and wants to grow 10x faster with daily high-quality videos—on autopilot.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300">
-                        Businesses looking for a reliable agency that can
-                        <span className="font-bold text-white"> make their company a priority.</span>
+                        Professionals who want to leverage AI to stay ahead of competitors without extra effort.
                       </span>
                     </li>
                   </ul>
                 </div>
                 
+                <div className="text-center text-gray-300 mb-4">
+                  Not ready for a call?
+                </div>
+                
                 <Button className="w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white text-lg font-bold py-6 rounded-xl hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
-                  Book Your Free Demo Call
+                  Chat with us on WhatsApp
                 </Button>
               </div>
             </div>
