@@ -9,13 +9,21 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-purple-50/30">
-      <div className="absolute inset-0 bg-[url('/pattern-bg.svg')] bg-repeat opacity-5 -z-10"></div>
+    <div className="min-h-screen bg-[#0e0118]">
       <Navbar />
       <Hero />
       <HowItWorks />
       <WhyChooseUs />
       <ClientResults />
+      <div className="bg-[#1c0639] py-32 text-center">
+        <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+          Have Some Questions?<br/>
+          Get In Touch
+        </h2>
+        <button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-6 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300 mt-12">
+          Book a call
+        </button>
+      </div>
       <StickyCallToAction />
       <Footer />
     </div>

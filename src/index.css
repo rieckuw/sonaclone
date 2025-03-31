@@ -5,82 +5,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 263 95% 5%;
+    --foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 263 72% 17%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 263 95% 5%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 265 89% 78%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 65 100% 55%;
+    --primary-foreground: 240 5.9% 10%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 274 76% 48%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 264 45% 22%;
+    --muted-foreground: 264 40% 80%;
 
-    --accent: 265 89% 78%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 265 89% 78%;
-
-    --radius: 1rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 274 76% 48%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 274 50% 25%;
+    --input: 264 45% 22%;
+    --ring: 65 100% 55%;
+
+    --radius: 1rem;
   }
 }
 
@@ -97,15 +50,15 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-purple-500/40 relative overflow-hidden;
+    @apply bg-[#e4ff1a] hover:bg-[#eeff70] text-black font-bold py-4 px-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300;
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900;
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white;
   }
 
   .section-subtitle {
-    @apply text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto;
+    @apply text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto;
   }
 
   .card-shadow {
@@ -113,38 +66,34 @@
   }
 
   .brand-gradient {
-    background: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
+    background: linear-gradient(90deg, #e4ff1a 0%, #eeff70 100%);
   }
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
-  }
-
-  .gradient-card {
-    @apply relative overflow-hidden border border-purple-100 rounded-2xl;
-    background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(240,234,255,1) 100%);
-  }
-
-  .glass-card {
-    @apply backdrop-blur-sm bg-white/60 border border-white/20 rounded-2xl shadow-lg;
-  }
-
-  .gradient-border {
-    @apply relative rounded-xl p-[1px] overflow-hidden;
-    background: linear-gradient(90deg, #9b87f5 0%, #7E69AB 100%);
-  }
-
-  .gradient-border > div {
-    @apply bg-white rounded-xl;
+    background-image: linear-gradient(90deg, #e4ff1a 0%, #eeff70 100%);
   }
   
-  .glow-on-hover {
-    @apply hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300;
+  .dark-gradient-bg {
+    background: linear-gradient(135deg, #0e0118 0%, #1c0639 100%);
   }
   
-  .premium-button {
-    @apply rounded-full bg-gradient-to-r from-purple-700 to-purple-500 hover:from-purple-800 hover:to-purple-600 transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-purple-500/40 relative overflow-hidden;
+  .purple-glow {
+    box-shadow: 0 0 15px 5px rgba(126, 34, 206, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .purple-glow:hover {
+    box-shadow: 0 0 25px 8px rgba(126, 34, 206, 0.5);
+  }
+  
+  .yellow-glow {
+    box-shadow: 0 0 15px 5px rgba(228, 255, 26, 0.3);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .yellow-glow:hover {
+    box-shadow: 0 0 25px 8px rgba(228, 255, 26, 0.5);
   }
 }
 
@@ -159,10 +108,6 @@
   to {
     transform: translateX(-100%);
   }
-}
-
-.hero-scroller {
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .counter::after {
@@ -186,21 +131,33 @@
   animation: pulse-gradient 8s ease-in-out infinite;
 }
 
-/* Background blur effect */
-.backdrop-blur-hover {
-  transition: backdrop-filter 0.3s ease;
+/* Carousel animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.backdrop-blur-hover:hover {
-  backdrop-filter: blur(10px);
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
 }
 
-/* Premium glow effect */
-.premium-glow {
-  box-shadow: 0 0 15px 5px rgba(156, 39, 176, 0.3);
-  transition: box-shadow 0.3s ease;
+.carousel-item-enter {
+  animation: fadeIn 0.5s forwards;
 }
 
-.premium-glow:hover {
-  box-shadow: 0 0 25px 8px rgba(156, 39, 176, 0.5);
+.carousel-item-exit {
+  animation: fadeOut 0.5s forwards;
 }

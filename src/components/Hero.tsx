@@ -1,42 +1,82 @@
 
 import { Button } from "@/components/ui/button";
-import ClientImageCarousel from "./ClientImageCarousel";
+import { useState, useEffect } from 'react';
+
+// Images for carousel
+const clientImages = [
+  "/lovable-uploads/a9a1d0a3-6f93-4805-8194-c4bc255868a7.png",
+  "/lovable-uploads/128ac83e-89d4-4558-84ec-981649709c13.png",
+  "/lovable-uploads/79fdd2ec-fd87-4aa5-88f1-2e00a0af35c6.png",
+  "/lovable-uploads/9a4adf7a-7210-486d-b9d2-dcfeb417f759.png",
+  "/lovable-uploads/77b875ad-4980-426f-bdef-9832da12e529.png",
+  "/lovable-uploads/2b926451-395e-434a-ae91-45ae015a0e8c.png",
+];
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % clientImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="pt-40 pb-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-50 to-white -z-10"></div>
-      <div className="absolute top-0 right-0 w-full h-full bg-[url('/pattern-bg.svg')] bg-repeat opacity-10 -z-10"></div>
-      <div className="absolute -top-10 -right-10 w-64 h-64 bg-purple-200 rounded-full blur-3xl opacity-50 -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 rounded-full blur-3xl opacity-40 -z-10"></div>
+    <section className="pt-24 pb-24 min-h-screen flex items-center relative overflow-hidden">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-[#0e0118] -z-20"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
+      
+      {/* Background image with low opacity */}
+      <div 
+        className="absolute inset-0 opacity-10 -z-10 transition-opacity duration-1000 bg-center bg-cover"
+        style={{ backgroundImage: `url(${clientImages[currentImageIndex]})` }}
+      ></div>
       
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-4xl mx-auto mb-14">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
-            <span className="text-gray-900 inline-block mb-2">Agensi</span><br />
-            <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent inline-block text-4xl md:text-6xl lg:text-7xl font-extrabold">
-              Personal Branding AI
-            </span><br />
-            <span className="inline-block text-2xl md:text-3xl lg:text-4xl mt-4 text-gray-700">30 Posts/Month 1 Hour Setup Grow 10x Faster</span>
+        <div className="text-center max-w-6xl mx-auto mb-14">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight tracking-tight text-white">
+            Your Personal Brand,<br/>
+            <span className="bg-gradient-to-r from-[#e4ff1a] to-[#eeff70] bg-clip-text text-transparent">
+              100% AI-Powered.
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
-            No time to create content? No problem. We build your personal brand with AI-generated, high-quality posts that position you as an industry leader—without you lifting a finger.
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
+            You Never Have to Record Again.
+          </h2>
+          
+          <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+            We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
           </p>
+          
           <div className="flex justify-center">
-            <Button className="relative overflow-hidden group px-14 py-8 rounded-full hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-500 bg-gradient-to-r from-purple-700 to-purple-500">
-              <span className="relative z-10 flex flex-col">
-                <span className="text-2xl font-bold">Speak with our team</span>
-                <span className="text-sm font-light opacity-80">schedule your free setup now</span>
-              </span>
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] group-hover:blur-xl"></div>
+            <Button className="bg-[#e4ff1a] hover:bg-[#eeff70] text-black text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(228,255,26,0.4)] transition-all duration-300">
+              Get Started in 1 Hour
             </Button>
           </div>
         </div>
+        
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32 text-center text-white">
+          <div className="flex flex-col items-center">
+            <div className="text-6xl md:text-7xl font-bold mb-2">500Hr+</div>
+            <div className="text-xl text-gray-300">Time Saved</div>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <div className="text-6xl md:text-7xl font-bold mb-2">30+</div>
+            <div className="text-xl text-gray-300">Posts Per Month</div>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <div className="text-6xl md:text-7xl font-bold mb-2">10X</div>
+            <div className="text-xl text-gray-300">Credibility</div>
+          </div>
+        </div>
       </div>
-      
-      <ClientImageCarousel />
-      
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
     </section>
   );
 };

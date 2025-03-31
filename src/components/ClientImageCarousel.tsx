@@ -1,5 +1,5 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Client {
   id: number;
@@ -8,64 +8,42 @@ interface Client {
 }
 
 const clients: Client[] = [
-  { id: 1, image: '/lovable-uploads/db7b5bb4-bf09-4d17-aef1-e809727a989d.png', name: 'Dennis' },
-  { id: 2, image: '/lovable-uploads/db8d287c-752c-470e-9300-9b1c3ab85b6c.png', name: 'Rey' },
-  { id: 3, image: '/lovable-uploads/465216b0-e51e-4a00-9b1f-28f73646f9c4.png', name: 'Ricky' },
-  { id: 4, image: '/lovable-uploads/57d28577-311b-483b-9a6a-f7d49f775dd5.png', name: 'Henry' },
-  { id: 5, image: '/lovable-uploads/3449ef67-aeaa-4cf0-904b-6e19b53dce17.png', name: 'Evan' },
+  { id: 1, image: '/lovable-uploads/a9a1d0a3-6f93-4805-8194-c4bc255868a7.png', name: 'Client 1' },
+  { id: 2, image: '/lovable-uploads/128ac83e-89d4-4558-84ec-981649709c13.png', name: 'Client 2' },
+  { id: 3, image: '/lovable-uploads/79fdd2ec-fd87-4aa5-88f1-2e00a0af35c6.png', name: 'Client 3' },
+  { id: 4, image: '/lovable-uploads/9a4adf7a-7210-486d-b9d2-dcfeb417f759.png', name: 'Client 4' },
+  { id: 5, image: '/lovable-uploads/77b875ad-4980-426f-bdef-9832da12e529.png', name: 'Client 5' },
+  { id: 6, image: '/lovable-uploads/2b926451-395e-434a-ae91-45ae015a0e8c.png', name: 'Client 6' },
 ];
 
 const ClientImageCarousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    const handleMouseEnter = () => {
-      if (carouselRef.current) {
-        carouselRef.current.style.animationPlayState = 'paused';
-      }
-    };
-    
-    const handleMouseLeave = () => {
-      if (carouselRef.current) {
-        carouselRef.current.style.animationPlayState = 'running';
-      }
-    };
-    
-    const carousel = carouselRef.current;
-    
-    if (carousel) {
-      carousel.addEventListener('mouseenter', handleMouseEnter);
-      carousel.addEventListener('mouseleave', handleMouseLeave);
-    }
-    
-    return () => {
-      if (carousel) {
-        carousel.removeEventListener('mouseenter', handleMouseEnter);
-        carousel.removeEventListener('mouseleave', handleMouseLeave);
-      }
-    };
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % clients.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="w-full overflow-hidden hero-scroller">
-      <div 
-        ref={carouselRef}
-        className="flex client-carousel"
-      >
-        {/* Double the clients for infinite loop effect */}
-        {[...clients, ...clients].map((client, index) => (
+    <div className="w-full overflow-hidden mt-20">
+      <div className="flex gap-4 justify-center flex-wrap">
+        {clients.map((client, index) => (
           <div 
-            key={`${client.id}-${index}`} 
-            className="relative flex-none w-64 h-96 mx-2 overflow-hidden rounded-lg shadow-lg"
+            key={client.id} 
+            className={`relative w-64 h-36 overflow-hidden rounded-lg transition-all duration-500 ${
+              activeIndex === index ? "scale-110 shadow-[0_0_15px_rgba(228,255,26,0.4)]" : "opacity-40"
+            }`}
           >
             <img 
               src={client.image} 
-              alt={`Client ${client.name}`} 
+              alt={client.name} 
               className="object-cover w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
-              <div className="text-white font-bold">{client.name}</div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60"></div>
           </div>
         ))}
       </div>
