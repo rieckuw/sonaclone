@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -54,7 +54,7 @@ const clients: Client[] = [
   },
 ];
 
-const ContentPreview = () => {
+const ContentPreview: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
