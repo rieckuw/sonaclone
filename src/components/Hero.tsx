@@ -21,12 +21,13 @@ const Hero = () => {
             No time to create content? No problem. We build your personal brand with AI-generated, high-quality posts that position you as an industry leader—without you lifting a finger.
           </p>
           <div className="flex justify-center">
-            <Button className="btn-primary text-lg py-6 px-8 relative overflow-hidden group">
+            <Button className="btn-primary relative overflow-hidden group px-10 py-8">
               <span className="relative z-10 flex flex-col">
-                <span className="text-xl font-bold">Speak with our team</span>
-                <span className="text-sm font-medium opacity-90">schedule your free setup now</span>
+                <span className="text-2xl font-bold">Speak with our team</span>
+                <span className="text-sm font-light opacity-80">schedule your free setup now</span>
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-purple-500 group-hover:from-purple-800 group-hover:to-purple-600 transition-all duration-500"></div>
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-70 transition-opacity duration-500 bg-[radial-gradient(circle,_rgba(255,255,255,0.8)_0%,_transparent_70%)] group-hover:blur-xl"></div>
             </Button>
           </div>
           <div className="mt-8 text-gray-500">
