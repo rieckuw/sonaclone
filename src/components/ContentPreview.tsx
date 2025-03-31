@@ -1,37 +1,9 @@
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card } from '@/components/ui/card';
-import { Play, Pause } from 'lucide-react';
 
 const ContentPreview: React.FC = () => {
-  const [beforeIsPlaying, setBeforeIsPlaying] = useState(false);
-  const [afterIsPlaying, setAfterIsPlaying] = useState(false);
-  const beforeVideoRef = useRef<HTMLVideoElement>(null);
-  const afterVideoRef = useRef<HTMLVideoElement>(null);
-
-  const toggleBeforeVideo = () => {
-    if (beforeVideoRef.current) {
-      if (beforeIsPlaying) {
-        beforeVideoRef.current.pause();
-      } else {
-        beforeVideoRef.current.play();
-      }
-      setBeforeIsPlaying(!beforeIsPlaying);
-    }
-  };
-
-  const toggleAfterVideo = () => {
-    if (afterVideoRef.current) {
-      if (afterIsPlaying) {
-        afterVideoRef.current.pause();
-      } else {
-        afterVideoRef.current.play();
-      }
-      setAfterIsPlaying(!afterIsPlaying);
-    }
-  };
-
   return (
     <section id="content-preview" className="py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
@@ -47,24 +19,15 @@ const ContentPreview: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Before Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            <div className="relative w-full cursor-pointer" onClick={toggleBeforeVideo}>
+            <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <video 
-                  ref={beforeVideoRef}
-                  src="https://drive.google.com/uc?id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
-                  poster="https://drive.google.com/thumbnail?id=1T0DXEvWDIQm7nEzCZWwATKo0nnMsO44A"
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover absolute inset-0"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {!beforeIsPlaying && (
-                    <div className="bg-black/50 rounded-full p-3">
-                      <Play className="w-8 h-8 text-white" />
-                    </div>
-                  )}
-                </div>
+                <iframe 
+                  src="https://iframe.mediadelivery.net/embed/403899/26a748c8-73fa-4e18-9e8c-3ae05aa67292?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
+                  loading="lazy" 
+                  className="w-full h-full absolute inset-0 border-0"
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                  allowFullScreen={true}
+                ></iframe>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -78,24 +41,15 @@ const ContentPreview: React.FC = () => {
 
           {/* After Example */}
           <div className="relative overflow-hidden rounded-lg max-w-[280px] mx-auto w-full">
-            <div className="relative w-full cursor-pointer" onClick={toggleAfterVideo}>
+            <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
-                <video 
-                  ref={afterVideoRef}
-                  src="https://drive.google.com/uc?id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
-                  poster="https://drive.google.com/thumbnail?id=1Zy-V2kfd2TybgYT1L1S7q__BRHS_rv_w"
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover absolute inset-0"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {!afterIsPlaying && (
-                    <div className="bg-black/50 rounded-full p-3">
-                      <Play className="w-8 h-8 text-white" />
-                    </div>
-                  )}
-                </div>
+                <iframe 
+                  src="https://iframe.mediadelivery.net/embed/403899/4c5edcf2-d59e-4023-8c23-98f5de2ee749?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
+                  loading="lazy" 
+                  className="w-full h-full absolute inset-0 border-0"
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                  allowFullScreen={true}
+                ></iframe>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
