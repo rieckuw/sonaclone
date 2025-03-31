@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -52,7 +53,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 mb-12">
         <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white">
-            Personal Branding Agency,<br/>
+            Personal Branding Agency<br/>
             <span className="bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
               100% AI-Powered.
             </span>
