@@ -52,18 +52,18 @@ const Hero = () => {
       
       <div className="container mx-auto px-4 mb-12">
         <div className="text-center max-w-5xl mx-auto">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white">
-            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(126,34,206,0.5)]">
               The first AI-Powered
             </span>
             Personal Branding Agency
           </h1>
           
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.25)]">
             You Never Have to Record Again.
           </h2>
           
-          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto drop-shadow-[0_0_8px_rgba(200,200,255,0.15)]">
             We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
           </p>
           
@@ -123,17 +123,17 @@ const Hero = () => {
       <div className="container mx-auto px-4 mt-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
           <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2">500Hr+</div>
+            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">500Hr+</div>
             <div className="text-xl text-gray-300">Time Saved</div>
           </div>
           
           <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2">30+</div>
+            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">30+</div>
             <div className="text-xl text-gray-300">Posts Per Month</div>
           </div>
           
           <div className="flex flex-col items-center">
-            <div className="text-6xl md:text-7xl font-bold mb-2">10X</div>
+            <div className="text-6xl md:text-7xl font-bold mb-2 drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">10X</div>
             <div className="text-xl text-gray-300">Credibility</div>
           </div>
         </div>
