@@ -74,7 +74,7 @@ const Hero = () => {
           </h2>
           
           <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto drop-shadow-[0_0_8px_rgba(200,200,255,0.15)]">
-            We create & post daily, high-quality videos of you—without you ever recording again. Just one-time, 1-hour setup and your content runs on autopilot.
+            We turn one setup session into unlimited talking head contents posted daily, helping you grow 10x faster while you focus on your business, not recording
           </p>
           
           <div className="flex justify-center mb-10">
