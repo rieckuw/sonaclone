@@ -22,6 +22,18 @@ const ContentPreview: React.FC = () => {
       setAfterPlaying(true);
     }
   };
+  
+  const handleVideoPause = (videoRef: React.RefObject<HTMLVideoElement>, setPlaying: React.Dispatch<React.SetStateAction<boolean>>) => {
+    if (videoRef.current) {
+      if (!videoRef.current.paused) {
+        videoRef.current.pause();
+        setPlaying(false);
+      } else {
+        videoRef.current.play();
+        setPlaying(true);
+      }
+    }
+  };
 
   return (
     <section id="content-preview" className="py-32 bg-[#0e0118]">
@@ -50,6 +62,7 @@ const ContentPreview: React.FC = () => {
                   playsInline
                   className="w-full h-full absolute inset-0"
                   preload="auto"
+                  onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
                 >
                   <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -89,6 +102,7 @@ const ContentPreview: React.FC = () => {
                   playsInline
                   className="w-full h-full absolute inset-0"
                   preload="auto"
+                  onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
                 >
                   <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
