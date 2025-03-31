@@ -4,14 +4,18 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Play, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { Toggle } from '@/components/ui/toggle';
 
 const ContentPreview: React.FC = () => {
   const [beforePlaying, setBeforePlaying] = useState(false);
   const [afterPlaying, setAfterPlaying] = useState(false);
-  const [activeView, setActiveView] = useState('split'); // 'split', 'before', 'after'
+  const [comparison, setComparison] = useState(50); // Default position at 50% (middle)
+  
   const beforeVideoRef = useRef<HTMLVideoElement>(null);
   const afterVideoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
+  // Handle play actions
   const handleBeforePlay = () => {
     if (beforeVideoRef.current && !beforePlaying) {
       beforeVideoRef.current.play();
@@ -37,21 +41,22 @@ const ContentPreview: React.FC = () => {
       }
     }
   };
-
-  useEffect(() => {
-    // Reset videos when changing views
-    if (beforeVideoRef.current && afterVideoRef.current) {
-      beforeVideoRef.current.pause();
-      afterVideoRef.current.pause();
-      setBeforePlaying(false);
-      setAfterPlaying(false);
-    }
-  }, [activeView]);
+  
+  // Handle slider comparison
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return;
+    
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    const percentage = Math.round((x / rect.width) * 100);
+    
+    setComparison(percentage);
+  };
 
   return (
-    <section id="content-preview" className="py-24 bg-[#0e0118] overflow-hidden">
+    <section id="content-preview" className="py-16 bg-[#0e0118] overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,30 +75,6 @@ const ContentPreview: React.FC = () => {
           >
             Our AI generates stunning, high-quality content that looks and sounds exactly like you. See for yourself.
           </motion.p>
-
-          <div className="flex justify-center gap-4 mb-16">
-            <Button 
-              onClick={() => setActiveView('split')}
-              variant={activeView === 'split' ? 'default' : 'outline'}
-              className={`${activeView === 'split' ? 'bg-[#7e22ce] hover:bg-[#9333ea]' : 'bg-transparent border-[#7e22ce] text-[#7e22ce]'} transition-all duration-300`}
-            >
-              Compare View
-            </Button>
-            <Button 
-              onClick={() => setActiveView('before')}
-              variant={activeView === 'before' ? 'default' : 'outline'}
-              className={`${activeView === 'before' ? 'bg-[#7e22ce] hover:bg-[#9333ea]' : 'bg-transparent border-[#7e22ce] text-[#7e22ce]'} transition-all duration-300`}
-            >
-              Before
-            </Button>
-            <Button 
-              onClick={() => setActiveView('after')}
-              variant={activeView === 'after' ? 'default' : 'outline'}
-              className={`${activeView === 'after' ? 'bg-[#7e22ce] hover:bg-[#9333ea]' : 'bg-transparent border-[#7e22ce] text-[#7e22ce]'} transition-all duration-300`}
-            >
-              After
-            </Button>
-          </div>
         </div>
 
         <motion.div 
@@ -101,187 +82,115 @@ const ContentPreview: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="relative"
+          className="relative flex justify-center"
         >
-          {activeView === 'split' && (
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 relative">
-              {/* Before Example */}
-              <div className="relative overflow-hidden rounded-lg max-w-[280px] w-full transition-all transform hover:-translate-y-2 duration-300">
-                <div className="relative w-full">
-                  <AspectRatio ratio={9/16} className="bg-gray-900">
-                    <video 
-                      ref={beforeVideoRef}
-                      id="before-video"
-                      onContextMenu={() => false}
-                      controlsList="nodownload" 
-                      controls={false}
-                      poster="https://rickypranaya.publit.io/file/0401.jpg"
-                      playsInline
-                      className="w-full h-full absolute inset-0"
-                      preload="auto"
-                      onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
-                    >
-                      <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {!beforePlaying && (
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                        onClick={handleBeforePlay}
-                      >
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                          <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                        </div>
-                      </div>
-                    )}
-                  </AspectRatio>
-                </div>
-                <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
-                  <span className="font-semibold">Before</span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white font-medium">Original</p>
-                  <p className="text-gray-300 text-sm">2-minutes self-talking</p>
-                </div>
+          {/* Interactive Comparison Slider */}
+          <div 
+            ref={containerRef}
+            className="relative max-w-2xl w-full rounded-lg overflow-hidden cursor-pointer"
+            onMouseMove={handleMouseMove}
+            onClick={handleMouseMove}
+          >
+            {/* Before Video (Full Width) */}
+            <div className="relative w-full">
+              <AspectRatio ratio={9/16} className="bg-gray-900">
+                <video 
+                  ref={beforeVideoRef}
+                  id="before-video"
+                  onContextMenu={() => false}
+                  controlsList="nodownload" 
+                  controls={false}
+                  poster="https://rickypranaya.publit.io/file/0401.jpg"
+                  playsInline
+                  loop
+                  muted
+                  className="w-full h-full absolute inset-0 object-cover"
+                  preload="auto"
+                  onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
+                >
+                  <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                {!beforePlaying && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                    onClick={handleBeforePlay}
+                  >
+                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                      <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
+                    </div>
+                  </div>
+                )}
+              </AspectRatio>
+              <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
+                <span className="font-semibold">Before</span>
               </div>
-
-              {/* Arrow Animation */}
-              <div className="my-6 md:my-0 transform md:-translate-y-4">
-                <div className="relative flex items-center justify-center w-16 h-16">
-                  <div className="absolute w-16 h-16 bg-[#7e22ce]/20 rounded-full animate-pulse"></div>
-                  <ArrowRight size={36} className="text-[#7e22ce] animate-pulse-slow" />
-                </div>
-              </div>
-
-              {/* After Example */}
-              <div className="relative overflow-hidden rounded-lg max-w-[280px] w-full transition-all transform hover:-translate-y-2 duration-300 shadow-[0_0_25px_5px_rgba(126,34,206,0.3)]">
-                <div className="relative w-full">
-                  <AspectRatio ratio={9/16} className="bg-gray-900">
-                    <video 
-                      ref={afterVideoRef}
-                      id="after-video"
-                      onContextMenu={() => false}
-                      controlsList="nodownload" 
-                      controls={false}
-                      poster="https://rickypranaya.publit.io/file/dennish.jpg"
-                      playsInline
-                      className="w-full h-full absolute inset-0"
-                      preload="auto"
-                      onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
+            </div>
+            
+            {/* After Video (Clipped by slider) */}
+            <div 
+              className="absolute top-0 left-0 h-full overflow-hidden"
+              style={{ width: `${comparison}%` }}
+            >
+              <div className="relative w-full h-full" style={{ width: containerRef.current?.clientWidth || 'auto' }}>
+                <AspectRatio ratio={9/16} className="bg-gray-900">
+                  <video 
+                    ref={afterVideoRef}
+                    id="after-video"
+                    onContextMenu={() => false}
+                    controlsList="nodownload" 
+                    controls={false}
+                    poster="https://rickypranaya.publit.io/file/dennish.jpg"
+                    playsInline
+                    loop
+                    muted
+                    className="w-full h-full absolute inset-0 object-cover"
+                    preload="auto"
+                    onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
+                  >
+                    <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {!afterPlaying && (
+                    <div 
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                      onClick={handleAfterPlay}
                     >
-                      <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {!afterPlaying && (
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                        onClick={handleAfterPlay}
-                      >
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                          <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                        </div>
+                      <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                        <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                       </div>
-                    )}
-                  </AspectRatio>
-                </div>
+                    </div>
+                  )}
+                </AspectRatio>
                 <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
                   <span className="font-semibold">After</span>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white font-medium">AI-Generated</p>
-                  <p className="text-gray-300 text-sm">Exact clone of yourself</p>
-                </div>
               </div>
             </div>
-          )}
-
-          {activeView === 'before' && (
-            <div className="flex justify-center">
-              {/* Full-width Before Example */}
-              <div className="relative overflow-hidden rounded-lg max-w-[320px] w-full">
-                <div className="relative w-full">
-                  <AspectRatio ratio={9/16} className="bg-gray-900">
-                    <video 
-                      ref={beforeVideoRef}
-                      id="before-video-full"
-                      onContextMenu={() => false}
-                      controlsList="nodownload" 
-                      controls={false}
-                      poster="https://rickypranaya.publit.io/file/0401.jpg"
-                      playsInline
-                      className="w-full h-full absolute inset-0"
-                      preload="auto"
-                      onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
-                    >
-                      <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {!beforePlaying && (
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                        onClick={handleBeforePlay}
-                      >
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                          <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                        </div>
-                      </div>
-                    )}
-                  </AspectRatio>
+            
+            {/* Divider Line & Handle */}
+            <div 
+              className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_5px_rgba(126,34,206,0.6)]"
+              style={{ left: `${comparison}%`, transform: 'translateX(-50%)' }}
+            >
+              <motion.div 
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#7e22ce] border-2 border-white flex items-center justify-center shadow-lg cursor-grab"
+                whileTap={{ cursor: 'grabbing' }}
+                whileHover={{ scale: 1.1 }}
+                animate={{ 
+                  boxShadow: ['0 0 10px 5px rgba(126,34,206,0.3)', '0 0 20px 5px rgba(126,34,206,0.6)', '0 0 10px 5px rgba(126,34,206,0.3)']
+                }}
+                transition={{ 
+                  boxShadow: { repeat: Infinity, duration: 2 }
+                }}
+              >
+                <div className="flex items-center justify-center space-x-1">
+                  <ArrowRight size={12} className="text-white rotate-180" />
+                  <ArrowRight size={12} className="text-white" />
                 </div>
-                <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
-                  <span className="font-semibold">Before</span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white font-medium">Original</p>
-                  <p className="text-gray-300 text-sm">2-minutes self-talking</p>
-                </div>
-              </div>
+              </motion.div>
             </div>
-          )}
-
-          {activeView === 'after' && (
-            <div className="flex justify-center">
-              {/* Full-width After Example */}
-              <div className="relative overflow-hidden rounded-lg max-w-[320px] w-full shadow-[0_0_25px_5px_rgba(126,34,206,0.3)]">
-                <div className="relative w-full">
-                  <AspectRatio ratio={9/16} className="bg-gray-900">
-                    <video 
-                      ref={afterVideoRef}
-                      id="after-video-full"
-                      onContextMenu={() => false}
-                      controlsList="nodownload" 
-                      controls={false}
-                      poster="https://rickypranaya.publit.io/file/dennish.jpg"
-                      playsInline
-                      className="w-full h-full absolute inset-0"
-                      preload="auto"
-                      onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
-                    >
-                      <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    {!afterPlaying && (
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                        onClick={handleAfterPlay}
-                      >
-                        <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
-                          <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                        </div>
-                      </div>
-                    )}
-                  </AspectRatio>
-                </div>
-                <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
-                  <span className="font-semibold">After</span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                  <p className="text-white font-medium">AI-Generated</p>
-                  <p className="text-gray-300 text-sm">Exact clone of yourself</p>
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
         </motion.div>
 
         <motion.div 
@@ -289,7 +198,7 @@ const ContentPreview: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-12"
         >
           <p className="text-white/80 text-lg max-w-2xl mx-auto">
             With just a 2-minute recording from you, our AI can generate unlimited high-quality videos—your face, your voice, your expertise.
