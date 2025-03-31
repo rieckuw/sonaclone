@@ -44,7 +44,7 @@ const ContentPreview: React.FC = () => {
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <iframe 
-                  src="https://iframe.mediadelivery.net/embed/403899/4c5edcf2-d59e-4023-8c23-98f5de2ee749?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
+                  src="https://iframe.mediadelivery.net/embed/403899/8fccc207-7343-432c-9f03-210222a42e74?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
                   loading="lazy" 
                   className="w-full h-full absolute inset-0 border-0"
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
