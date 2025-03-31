@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -26,10 +25,14 @@ const painPoints = [
 ];
 
 const WhyChooseUs = () => {
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="why-choose-us" className="py-32 bg-[#12031e]">
+    <section id="why-choose-us" className="py-24 bg-[#12031e]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-24">
+        <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
             Personal Branding Without Headache
           </h2>
@@ -52,8 +55,11 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        <div className="mt-24 text-center">
-          <Button className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300">
+        <div className="mt-20 text-center">
+          <Button 
+            onClick={scrollToBooking}
+            className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300"
+          >
             Speak To Our Team Today
           </Button>
         </div>

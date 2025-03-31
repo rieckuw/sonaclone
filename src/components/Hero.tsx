@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from 'react';
 
@@ -40,7 +39,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="py-32 min-h-screen flex flex-col items-center relative overflow-hidden">
+    <section className="py-24 min-h-screen flex flex-col items-center relative overflow-hidden">
       {/* Dark background base */}
       <div className="absolute inset-0 bg-[#0e0118] -z-30"></div>
       
@@ -65,7 +64,7 @@ const Hero = () => {
         ></div>
       ))}
       
-      <div className="container mx-auto px-4 mb-12">
+      <div className="container mx-auto px-4 mb-10">
         <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-2 bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(126,34,206,0.5)]">

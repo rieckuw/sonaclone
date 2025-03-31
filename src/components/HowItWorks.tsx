@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Brain, Smartphone, TrendingUp } from "lucide-react";
@@ -31,10 +30,14 @@ const steps = [
 ];
 
 const HowItWorks = () => {
+  const scrollToBooking = () => {
+    document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="how-it-works" className="py-32 bg-[#0e0118]">
+    <section id="how-it-works" className="py-24 bg-[#0e0118]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-24">
+        <div className="text-center mb-20">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-300">
             How It Works
           </h2>
@@ -44,7 +47,6 @@ const HowItWorks = () => {
         </div>
 
         <div className="relative">
-          {/* Process connector line for desktop */}
           <div className="hidden lg:block absolute top-28 left-[calc(12.5%+3rem)] right-[calc(12.5%+3rem)] h-1 bg-gradient-to-r from-purple-600/20 via-purple-600/50 to-purple-600/20 z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/0 via-purple-600/30 to-purple-600/0 animate-pulse-slow"></div>
           </div>
@@ -52,14 +54,12 @@ const HowItWorks = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 relative z-10">
             {steps.map((step, index) => (
               <div key={step.id} className="flex flex-col group" data-aos="fade-up" data-aos-delay={index * 100}>
-                {/* Step indicator with prominent number */}
                 <div className="flex justify-center mb-6">
                   <div className="relative">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#7e22ce] to-[#9333ea] flex items-center justify-center shadow-[0_0_15px_rgba(126,34,206,0.5)] group-hover:shadow-[0_0_25px_rgba(126,34,206,0.8)] transition-all duration-500 group-hover:scale-110">
                       <span className="text-white text-3xl font-bold">{step.id}</span>
                     </div>
                     
-                    {/* Arrow for all but last step */}
                     {index < steps.length - 1 && (
                       <div className="hidden lg:flex absolute top-1/2 -right-12 transform -translate-y-1/2 text-[#9333ea]">
                         <ArrowRight size={30} className="animate-pulse-slow" />
@@ -83,13 +83,14 @@ const HowItWorks = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <Button className="relative overflow-hidden group bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full transition-all duration-500">
-            {/* Inner glow effect */}
+          <Button 
+            onClick={scrollToBooking}
+            className="relative overflow-hidden group bg-[#7e22ce] hover:bg-[#9333ea] text-white text-xl font-bold px-12 py-8 rounded-full transition-all duration-500"
+          >
             <span className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <span className="absolute inset-0 w-full h-full bg-[#7e22ce] blur-xl"></span>
             </span>
             
-            {/* Button text with hover animation */}
             <span className="relative z-10 flex items-center gap-3">
               Schedule Free Setup Session
               <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
