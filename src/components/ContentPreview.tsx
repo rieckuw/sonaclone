@@ -1,26 +1,34 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Card } from '@/components/ui/card';
-import { Play } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 
 const ContentPreview: React.FC = () => {
   const [beforePlaying, setBeforePlaying] = useState(false);
   const [afterPlaying, setAfterPlaying] = useState(false);
+  const beforeVideoRef = useRef<HTMLVideoElement>(null);
+  const afterVideoRef = useRef<HTMLVideoElement>(null);
 
-  const handleBeforePlay = () => {
-    setBeforePlaying(true);
-    const video = document.getElementById('before-video') as HTMLVideoElement;
-    if (video) {
-      video.play();
+  const handleBeforeToggle = () => {
+    if (beforeVideoRef.current) {
+      if (beforePlaying) {
+        beforeVideoRef.current.pause();
+      } else {
+        beforeVideoRef.current.play();
+      }
+      setBeforePlaying(!beforePlaying);
     }
   };
 
-  const handleAfterPlay = () => {
-    setAfterPlaying(true);
-    const video = document.getElementById('after-video') as HTMLVideoElement;
-    if (video) {
-      video.play();
+  const handleAfterToggle = () => {
+    if (afterVideoRef.current) {
+      if (afterPlaying) {
+        afterVideoRef.current.pause();
+      } else {
+        afterVideoRef.current.play();
+      }
+      setAfterPlaying(!afterPlaying);
     }
   };
 
@@ -42,10 +50,11 @@ const ContentPreview: React.FC = () => {
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
+                  ref={beforeVideoRef}
                   id="before-video"
                   onContextMenu={() => false}
                   controlsList="nodownload" 
-                  controls={beforePlaying}
+                  controls={false}
                   poster="https://rickypranaya.publit.io/file/0401.jpg"
                   playsInline
                   className="w-full h-full absolute inset-0"
@@ -54,16 +63,18 @@ const ContentPreview: React.FC = () => {
                   <source src="https://rickypranaya.publit.io/file/h_1080/0401.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {!beforePlaying && (
-                  <div 
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                    onClick={handleBeforePlay}
-                  >
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                <div 
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                  onClick={handleBeforeToggle}
+                >
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                    {beforePlaying ? (
+                      <Pause size={36} className="text-white" fill="white" fillOpacity={0.8} />
+                    ) : (
                       <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                    </div>
+                    )}
                   </div>
-                )}
+                </div>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-black/60 text-white px-4 py-2 rounded-br-lg">
@@ -80,10 +91,11 @@ const ContentPreview: React.FC = () => {
             <div className="relative w-full">
               <AspectRatio ratio={9/16} className="bg-gray-900">
                 <video 
+                  ref={afterVideoRef}
                   id="after-video"
                   onContextMenu={() => false}
                   controlsList="nodownload" 
-                  controls={afterPlaying}
+                  controls={false}
                   poster="https://rickypranaya.publit.io/file/dennish.jpg"
                   playsInline
                   className="w-full h-full absolute inset-0"
@@ -92,16 +104,18 @@ const ContentPreview: React.FC = () => {
                   <source src="https://rickypranaya.publit.io/file/h_1080/pitching-4.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
-                {!afterPlaying && (
-                  <div 
-                    className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
-                    onClick={handleAfterPlay}
-                  >
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                <div 
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/40 transition-all duration-300"
+                  onClick={handleAfterToggle}
+                >
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/30 transition-all duration-300">
+                    {afterPlaying ? (
+                      <Pause size={36} className="text-white" fill="white" fillOpacity={0.8} />
+                    ) : (
                       <Play size={36} className="text-white ml-1" fill="white" fillOpacity={0.8} />
-                    </div>
+                    )}
                   </div>
-                )}
+                </div>
               </AspectRatio>
             </div>
             <div className="absolute top-0 left-0 bg-[#7e22ce] text-white px-4 py-2 rounded-br-lg">
