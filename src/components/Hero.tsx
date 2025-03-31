@@ -25,7 +25,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="py-32 min-h-screen flex items-center relative overflow-hidden">
+    <section className="py-32 min-h-screen flex flex-col items-center relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[#0e0118] -z-20"></div>
       <div className="absolute inset-0 bg-gradient-to-b from-[#1c0639]/80 to-[#0e0118] -z-10"></div>
@@ -41,8 +41,8 @@ const Hero = () => {
         ></div>
       ))}
       
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-5xl mx-auto mb-8">
+      <div className="container mx-auto px-4 mb-12">
+        <div className="text-center max-w-5xl mx-auto">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight text-white">
             Personal Branding Agency,<br/>
             <span className="bg-gradient-to-r from-[#7e22ce] to-[#a855f7] bg-clip-text text-transparent">
@@ -70,47 +70,49 @@ const Hero = () => {
               <span className="relative z-10">Speak to our team now</span>
             </button>
           </div>
-          
-          {/* Phone-style content carousel (9:16 ratio) */}
-          <div className="w-full overflow-hidden mt-12">
-            <div 
-              ref={scrollRef} 
-              className="flex space-x-4 phoneCarousel"
-            >
-              {clientImages.map((image, index) => (
-                <div key={`img-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
-                  <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
-                    <img 
-                      src={image} 
-                      alt={`AI-generated content ${index + 1}`} 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <p className="text-white text-sm font-medium">AI-Generated Content</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {clientImages.map((image, index) => (
-                <div key={`img-dup-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
-                  <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
-                    <img 
-                      src={image} 
-                      alt={`AI-generated content ${index + 1}`} 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <p className="text-white text-sm font-medium">AI-Generated Content</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
-        
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-center text-white">
+      </div>
+      
+      {/* Phone-style content carousel (9:16 ratio) - Full width */}
+      <div className="w-full overflow-hidden">
+        <div 
+          ref={scrollRef} 
+          className="flex space-x-4 phoneCarousel px-4 py-2"
+        >
+          {clientImages.map((image, index) => (
+            <div key={`img-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
+              <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
+                <img 
+                  src={image} 
+                  alt={`AI-generated content ${index + 1}`} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                </div>
+              </div>
+            </div>
+          ))}
+          {clientImages.map((image, index) => (
+            <div key={`img-dup-${index}`} className="flex-shrink-0 w-[200px] md:w-[250px]">
+              <div className="relative rounded-xl overflow-hidden aspect-[9/16] shadow-lg">
+                <img 
+                  src={image} 
+                  alt={`AI-generated content ${index + 1}`} 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white text-sm font-medium">AI-Generated Content</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Stats */}
+      <div className="container mx-auto px-4 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
           <div className="flex flex-col items-center">
             <div className="text-6xl md:text-7xl font-bold mb-2">500Hr+</div>
             <div className="text-xl text-gray-300">Time Saved</div>
