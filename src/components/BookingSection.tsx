@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const BookingSection = () => {
@@ -33,7 +31,7 @@ const BookingSection = () => {
   }, []);
   
   return (
-    <section id="booking" className="py-16 md:py-32 bg-[#0e0118]">
+    <section id="booking" className="pt-20 pb-16 md:py-32 bg-[#0e0118]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -56,7 +54,7 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Fixed Calendly inline widget with white background */}
+                {/* Calendly inline widget with white background */}
                 <div className="w-full overflow-hidden" style={{ maxWidth: '100%' }}>
                   <div 
                     className="calendly-inline-widget w-full bg-white rounded-lg" 
@@ -160,12 +158,5 @@ const BookingSection = () => {
     </section>
   );
 };
-
-// Add type definition for the Calendly global object
-declare global {
-  interface Window {
-    Calendly?: any;
-  }
-}
 
 export default BookingSection;
