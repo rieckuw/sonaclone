@@ -29,7 +29,7 @@ const Navbar = () => {
               alt="Sonaclone Agency" 
               className="h-7 md:h-8"
             />
-            <span className="ml-1 text-base md:text-lg font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans translate-y-1">Agency</span>
+            <span className="ml-1 text-base md:text-lg font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans translate-y-0.5">Agency</span>
           </a>
 
           {/* Desktop Navigation */}
