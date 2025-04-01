@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="col-span-1">
             <h3 className="text-2xl font-bold mb-4">Sonaclone Agency</h3>
             <p className="text-gray-400 mb-4 max-w-md">
-              We create & post daily, high-quality content of you—without you ever recording again.
+            We turn one setup session into unlimited talking head contents posted daily, helping you build authority 10x faster while you focus on your business, not recording.
             </p>
           </div>
           
