@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ArrowRight, Play } from 'lucide-react';
-import { Slider } from '@/components/ui/slider';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const ContentPreview: React.FC = () => {
@@ -65,6 +64,14 @@ const ContentPreview: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
+          
+          // Auto-play before video when section comes into view
+          setTimeout(() => {
+            if (beforeVideoRef.current) {
+              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+              setBeforePlaying(true);
+            }
+          }, 500);
         }
       },
       {
@@ -117,17 +124,7 @@ const ContentPreview: React.FC = () => {
     const afterObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (afterVideoRef.current) {
-              if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
-                beforeVideoRef.current.pause();
-                setBeforePlaying(false);
-              }
-              
-              afterVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
-              setAfterPlaying(true);
-            }
-          } else {
+          if (!entry.isIntersecting) {
             if (afterVideoRef.current && !afterVideoRef.current.paused) {
               afterVideoRef.current.pause();
               setAfterPlaying(false);

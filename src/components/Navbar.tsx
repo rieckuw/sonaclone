@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
@@ -25,8 +24,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center group">
-            <span className="text-2xl md:text-3xl font-bold text-white tracking-tight">Sonaclone</span>
-            <span className="ml-1 text-lg md:text-xl font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans">Agency</span>
+            <img 
+              src="/lovable-uploads/e1f46d89-bbf0-4514-9256-bba9aa16c3fc.png" 
+              alt="Sonaclone Agency" 
+              className="h-7 md:h-8"
+            />
+            <span className="ml-2 text-lg md:text-xl font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans">Agency</span>
           </a>
 
           {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 
+# Sonaclone Agency Website
 User-agent: *
 Allow: /
 
@@ -11,6 +12,12 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Yandexbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 # Social media
 User-agent: Twitterbot
 Allow: /
@@ -20,3 +27,20 @@ Allow: /
 
 User-agent: WhatsApp
 Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Disallow specific paths if needed
+# User-agent: *
+# Disallow: /private/
+
+# Crawl delay for non-major crawlers
+User-agent: *
+Crawl-delay: 10
