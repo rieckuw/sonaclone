@@ -206,7 +206,6 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/0401.jpg"
                     playsInline
-                    muted
                     className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'before' ? 'scale-[1.03]' : 'scale-100'}`}
                     preload="auto"
                     onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
@@ -257,7 +256,6 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/dennish.jpg"
                     playsInline
-                    muted
                     className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'after' ? 'scale-[1.03]' : 'scale-100'}`}
                     preload="auto"
                     onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
