@@ -33,7 +33,7 @@ const BookingSection = () => {
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left column - Calendly iframe */}
-            <div className="bg-[#1c0639] p-6 md:p-12">
+            <div className="bg-[#1c0639] p-6 md:p-12 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold text-white mb-4">Demo Call</h2>
                 
@@ -51,15 +51,18 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Improved Calendly inline widget with better mobile responsiveness */}
-                <div className="calendly-inline-widget w-full overflow-hidden" 
-                  data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=000000&primary_color=7429c6&hide_gdpr_banner=1" 
-                  style={{ 
-                    minWidth: "320px", 
-                    height: "750px", 
-                    border: "none",
-                    borderRadius: "8px"
-                  }}>
+                {/* Fixed Calendly inline widget with better mobile responsiveness */}
+                <div className="w-full" style={{ position: 'relative', overflow: 'hidden' }}>
+                  <div 
+                    className="calendly-inline-widget w-full" 
+                    data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=ffffff&primary_color=7429c6&hide_gdpr_banner=1&hide_landing_page_details=1&iframe_title=Select+a+time&background_color=1c0639" 
+                    style={{ 
+                      minWidth: "320px", 
+                      height: "630px",
+                      border: "none",
+                      borderRadius: "8px"
+                    }}>
+                  </div>
                 </div>
               </div>
             </div>

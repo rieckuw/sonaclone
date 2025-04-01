@@ -12,19 +12,21 @@ const ContentPreview: React.FC = () => {
   const [inView, setInView] = useState(false);
   const beforeVideoRef = useRef<HTMLVideoElement>(null);
   const afterVideoRef = useRef<HTMLVideoElement>(null);
+  const beforeContainerRef = useRef<HTMLDivElement>(null);
+  const afterContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
 
   const handleBeforePlay = () => {
     if (beforeVideoRef.current && !beforePlaying) {
-      beforeVideoRef.current.play();
+      beforeVideoRef.current.play().catch(e => console.log("Play prevented", e));
       setBeforePlaying(true);
     }
   };
 
   const handleAfterPlay = () => {
     if (afterVideoRef.current && !afterPlaying) {
-      afterVideoRef.current.play();
+      afterVideoRef.current.play().catch(e => console.log("Play prevented", e));
       setAfterPlaying(true);
     }
   };
@@ -35,7 +37,7 @@ const ContentPreview: React.FC = () => {
         videoRef.current.pause();
         setPlaying(false);
       } else {
-        videoRef.current.play();
+        videoRef.current.play().catch(e => console.log("Play prevented", e));
         setPlaying(true);
       }
     }
@@ -62,6 +64,86 @@ const ContentPreview: React.FC = () => {
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    // Create separate observers for each video container
+    const beforeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (beforeVideoRef.current) {
+              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+              setBeforePlaying(true);
+              
+              // If before video is playing, pause the after video
+              if (afterVideoRef.current && !afterVideoRef.current.paused) {
+                afterVideoRef.current.pause();
+                setAfterPlaying(false);
+              }
+            }
+          } else {
+            if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+              beforeVideoRef.current.pause();
+              setBeforePlaying(false);
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.6, // 60% of the element is visible
+      }
+    );
+
+    const afterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (afterVideoRef.current) {
+              afterVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+              setAfterPlaying(true);
+              
+              // If after video is playing, pause the before video
+              if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+                beforeVideoRef.current.pause();
+                setBeforePlaying(false);
+              }
+            }
+          } else {
+            if (afterVideoRef.current && !afterVideoRef.current.paused) {
+              afterVideoRef.current.pause();
+              setAfterPlaying(false);
+            }
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.6, // 60% of the element is visible
+      }
+    );
+
+    // Start observing
+    if (beforeContainerRef.current) {
+      beforeObserver.observe(beforeContainerRef.current);
+    }
+
+    if (afterContainerRef.current) {
+      afterObserver.observe(afterContainerRef.current);
+    }
+
+    // Clean up
+    return () => {
+      if (beforeContainerRef.current) {
+        beforeObserver.unobserve(beforeContainerRef.current);
+      }
+      if (afterContainerRef.current) {
+        afterObserver.unobserve(afterContainerRef.current);
       }
     };
   }, []);
@@ -96,6 +178,7 @@ const ContentPreview: React.FC = () => {
           
           <div className="flex justify-center md:block">
             <div 
+              ref={beforeContainerRef}
               className={`relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full transition-all duration-1000 
                         ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
               onMouseEnter={() => setHovered('before')}
@@ -111,6 +194,7 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/0401.jpg"
                     playsInline
+                    muted
                     className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'before' ? 'scale-[1.03]' : 'scale-100'}`}
                     preload="auto"
                     onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
@@ -145,6 +229,7 @@ const ContentPreview: React.FC = () => {
 
           <div className="flex justify-center md:block">
             <div 
+              ref={afterContainerRef}
               className={`relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full transition-all duration-1000 
                         ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
               onMouseEnter={() => setHovered('after')}
@@ -160,6 +245,7 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/dennish.jpg"
                     playsInline
+                    muted
                     className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'after' ? 'scale-[1.03]' : 'scale-100'}`}
                     preload="auto"
                     onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
