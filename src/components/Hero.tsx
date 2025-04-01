@@ -19,7 +19,7 @@ const clientInfo = [
   { name: "Sebastian Evan", title: "CEO Sepaktemu Academy" },
   { name: "Henry Dermawan", title: "Co-Founder Soar.id" },
   { name: "Melvin Mumpuni", title: "Founder Finansialku" },
-  { name: "Rey Kamal", title: "CEO Ledgerowl" },
+  { name: "Rey Kamal", title: "Co-Founder & CEO Ledgerowl" },
   { name: "Ricky Pranaya", title: "Co-Founder Sonaclone" },
 ];
 
