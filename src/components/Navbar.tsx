@@ -29,13 +29,13 @@ const Navbar = () => {
               alt="Sonaclone Agency" 
               className="h-7 md:h-8"
             />
-            <span className="ml-1 text-base md:text-lg font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans">Agency</span>
+            <span className="ml-1 text-base md:text-lg font-light text-gray-300 italic tracking-wide transform transition-all duration-300 group-hover:translate-x-1 opacity-80 group-hover:opacity-100 font-sans translate-y-1">Agency</span>
           </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
             <a href="#how-it-works" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">How It Works</a>
-            <a href="#why-choose-us" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Solutions</a>
+            <a href="#why-choose-us" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Why Choose Us</a>
             <a href="#content-preview" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Examples</a>
             <a 
               href={whatsappLink} 
