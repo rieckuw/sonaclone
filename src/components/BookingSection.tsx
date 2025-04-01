@@ -3,13 +3,18 @@ import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const BookingSection = () => {
   // State to track if Calendly script is loaded
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
+  const isMobile = useIsMobile();
   
   // WhatsApp link
   const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
+  
+  // Calculate appropriate height based on viewport
+  const calendlyHeight = isMobile ? "630px" : "750px";
   
   useEffect(() => {
     // Add Calendly script to the document
@@ -33,7 +38,7 @@ const BookingSection = () => {
         <div className="max-w-6xl mx-auto bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden shadow-2xl border border-[#7e22ce]/30">
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left column - Calendly iframe */}
-            <div className="bg-[#1c0639] p-6 md:p-12 overflow-hidden">
+            <div className="bg-[#1c0639] p-4 md:p-12 overflow-hidden">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold text-white mb-4">Demo Call</h2>
                 
@@ -58,7 +63,7 @@ const BookingSection = () => {
                     data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=333333&primary_color=7429c6&hide_gdpr_banner=1&hide_landing_page_details=1&iframe_title=Select+a+time&background_color=ffffff" 
                     style={{ 
                       minWidth: "320px", 
-                      height: "630px",
+                      height: calendlyHeight,
                       border: "none",
                       borderRadius: "8px"
                     }}>
