@@ -84,7 +84,7 @@ const Navbar = () => {
               className="text-gray-300 hover:text-[#a855f7] transition-colors py-3 text-base font-medium uppercase px-3"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Solutions
+              Why Choose Us
             </a>
             <a 
               href="#content-preview" 
