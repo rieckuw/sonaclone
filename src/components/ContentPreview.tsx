@@ -8,6 +8,7 @@ const ContentPreview: React.FC = () => {
   const [afterPlaying, setAfterPlaying] = useState(false);
   const [hovered, setHovered] = useState<'before' | 'after' | null>(null);
   const [inView, setInView] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
   const beforeVideoRef = useRef<HTMLVideoElement>(null);
   const afterVideoRef = useRef<HTMLVideoElement>(null);
   const beforeContainerRef = useRef<HTMLDivElement>(null);
@@ -59,25 +60,28 @@ const ContentPreview: React.FC = () => {
     }
   };
 
+  // Pause videos when section is out of viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          
-          // Auto-play before video when section comes into view
-          setTimeout(() => {
-            if (beforeVideoRef.current) {
-              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
-              setBeforePlaying(true);
-            }
-          }, 500);
+        // When section goes out of view, pause all videos
+        if (!entry.isIntersecting) {
+          if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+            beforeVideoRef.current.pause();
+            setBeforePlaying(false);
+          }
+          if (afterVideoRef.current && !afterVideoRef.current.paused) {
+            afterVideoRef.current.pause();
+            setAfterPlaying(false);
+          }
         }
+        setInView(entry.isIntersecting);
+        setIsIntersecting(entry.isIntersecting);
       },
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.3,
+        threshold: 0.2,
       }
     );
 
@@ -92,72 +96,83 @@ const ContentPreview: React.FC = () => {
     };
   }, []);
 
+  // Handle video playback based on visibility
   useEffect(() => {
-    const beforeObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (beforeVideoRef.current) {
-              if (afterVideoRef.current && !afterVideoRef.current.paused) {
-                afterVideoRef.current.pause();
-                setAfterPlaying(false);
-              }
-              
-              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
-              setBeforePlaying(true);
-            }
-          } else {
-            if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
-              beforeVideoRef.current.pause();
-              setBeforePlaying(false);
-            }
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.6,
-      }
-    );
+    const videoObserverCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        const isBeforeVideo = entry.target === beforeContainerRef.current;
+        const isAfterVideo = entry.target === afterContainerRef.current;
+        
+        // Only consider videos when section is in view
+        if (!isIntersecting) return;
 
-    const afterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            if (afterVideoRef.current && !afterVideoRef.current.paused) {
-              afterVideoRef.current.pause();
-              setAfterPlaying(false);
-            }
+        if (entry.isIntersecting) {
+          // Video is in view, but don't autoplay - let user click to start
+          // This fixes the autoplay issues
+        } else {
+          // Video is out of view, pause it
+          if (isBeforeVideo && beforeVideoRef.current && !beforeVideoRef.current.paused) {
+            beforeVideoRef.current.pause();
+            setBeforePlaying(false);
           }
-        });
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.6,
-      }
-    );
-
+          if (isAfterVideo && afterVideoRef.current && !afterVideoRef.current.paused) {
+            afterVideoRef.current.pause();
+            setAfterPlaying(false);
+          }
+        }
+      });
+    };
+    
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6,
+    };
+    
+    const videoObserver = new IntersectionObserver(videoObserverCallback, options);
+    
     if (beforeContainerRef.current) {
-      beforeObserver.observe(beforeContainerRef.current);
+      videoObserver.observe(beforeContainerRef.current);
     }
-
+    
     if (afterContainerRef.current) {
-      afterObserver.observe(afterContainerRef.current);
+      videoObserver.observe(afterContainerRef.current);
     }
-
+    
     return () => {
       if (beforeContainerRef.current) {
-        beforeObserver.unobserve(beforeContainerRef.current);
+        videoObserver.unobserve(beforeContainerRef.current);
       }
       if (afterContainerRef.current) {
-        afterObserver.unobserve(afterContainerRef.current);
+        videoObserver.unobserve(afterContainerRef.current);
       }
+    };
+  }, [isIntersecting, beforePlaying, afterPlaying]);
+
+  // Add event listener for page visibility changes
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Page is hidden, pause videos
+        if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+          beforeVideoRef.current.pause();
+          setBeforePlaying(false);
+        }
+        if (afterVideoRef.current && !afterVideoRef.current.paused) {
+          afterVideoRef.current.pause();
+          setAfterPlaying(false);
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
   return (
+    // ... keep existing code (section wrapper and title)
     <section 
       id="content-preview" 
       className="py-16 md:py-20 bg-[#0e0118] relative overflow-hidden"
