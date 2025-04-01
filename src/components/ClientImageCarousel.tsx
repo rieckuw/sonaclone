@@ -44,7 +44,7 @@ const clients: Client[] = [
     id: 5, 
     image: 'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHlkd3JucmRub2x6Ym5rdG50MXNlNnk4ODZyaHE3d2dvcDl6bnJ4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3utUCaHVlnY0sAsO5F/giphy.gif',
     name: 'Rey Kamal',
-    title: 'CEO Ledgerowl'
+    title: 'Co-Founder & CEO Ledgerowl'
   },
   { 
     id: 6, 
