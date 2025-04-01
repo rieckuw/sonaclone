@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { ArrowRight, Play } from 'lucide-react';
@@ -19,6 +18,11 @@ const ContentPreview: React.FC = () => {
 
   const handleBeforePlay = () => {
     if (beforeVideoRef.current && !beforePlaying) {
+      if (afterVideoRef.current && !afterVideoRef.current.paused) {
+        afterVideoRef.current.pause();
+        setAfterPlaying(false);
+      }
+      
       beforeVideoRef.current.play().catch(e => console.log("Play prevented", e));
       setBeforePlaying(true);
     }
@@ -26,6 +30,11 @@ const ContentPreview: React.FC = () => {
 
   const handleAfterPlay = () => {
     if (afterVideoRef.current && !afterPlaying) {
+      if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+        beforeVideoRef.current.pause();
+        setBeforePlaying(false);
+      }
+      
       afterVideoRef.current.play().catch(e => console.log("Play prevented", e));
       setAfterPlaying(true);
     }
@@ -37,6 +46,14 @@ const ContentPreview: React.FC = () => {
         videoRef.current.pause();
         setPlaying(false);
       } else {
+        if (videoRef === beforeVideoRef && afterVideoRef.current && !afterVideoRef.current.paused) {
+          afterVideoRef.current.pause();
+          setAfterPlaying(false);
+        } else if (videoRef === afterVideoRef && beforeVideoRef.current && !beforeVideoRef.current.paused) {
+          beforeVideoRef.current.pause();
+          setBeforePlaying(false);
+        }
+        
         videoRef.current.play().catch(e => console.log("Play prevented", e));
         setPlaying(true);
       }
@@ -69,20 +86,18 @@ const ContentPreview: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Create separate observers for each video container
     const beforeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (beforeVideoRef.current) {
-              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
-              setBeforePlaying(true);
-              
-              // If before video is playing, pause the after video
               if (afterVideoRef.current && !afterVideoRef.current.paused) {
                 afterVideoRef.current.pause();
                 setAfterPlaying(false);
               }
+              
+              beforeVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+              setBeforePlaying(true);
             }
           } else {
             if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
@@ -95,7 +110,7 @@ const ContentPreview: React.FC = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.6, // 60% of the element is visible
+        threshold: 0.6,
       }
     );
 
@@ -104,14 +119,13 @@ const ContentPreview: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (afterVideoRef.current) {
-              afterVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
-              setAfterPlaying(true);
-              
-              // If after video is playing, pause the before video
               if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
                 beforeVideoRef.current.pause();
                 setBeforePlaying(false);
               }
+              
+              afterVideoRef.current.play().catch(e => console.log("Auto-play prevented", e));
+              setAfterPlaying(true);
             }
           } else {
             if (afterVideoRef.current && !afterVideoRef.current.paused) {
@@ -124,11 +138,10 @@ const ContentPreview: React.FC = () => {
       {
         root: null,
         rootMargin: '0px',
-        threshold: 0.6, // 60% of the element is visible
+        threshold: 0.6,
       }
     );
 
-    // Start observing
     if (beforeContainerRef.current) {
       beforeObserver.observe(beforeContainerRef.current);
     }
@@ -137,7 +150,6 @@ const ContentPreview: React.FC = () => {
       afterObserver.observe(afterContainerRef.current);
     }
 
-    // Clean up
     return () => {
       if (beforeContainerRef.current) {
         beforeObserver.unobserve(beforeContainerRef.current);

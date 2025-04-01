@@ -52,7 +52,7 @@ const BookingSection = () => {
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
                 {/* Fixed Calendly inline widget with better mobile responsiveness */}
-                <div className="w-full" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div className="w-full overflow-hidden" style={{ maxWidth: '100%' }}>
                   <div 
                     className="calendly-inline-widget w-full" 
                     data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=ffffff&primary_color=7429c6&hide_gdpr_banner=1&hide_landing_page_details=1&iframe_title=Select+a+time&background_color=1c0639" 
