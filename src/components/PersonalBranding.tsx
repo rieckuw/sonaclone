@@ -13,23 +13,23 @@ type BrandingPoint = {
 const brandingPoints: BrandingPoint[] = [
   {
     icon: "📢",
-    title: "People trust personal brands over faceless businesses",
-    description: "The top CEOs, creators, and industry leaders all have a face, not just a logo."
+    title: "Trust in Faces, Not Faceless Brands",
+    description: "Top industry leaders are known by their face, not just their logo."
   },
   {
     icon: "🌍",
-    title: "Opportunities come to you when you're visible",
-    description: "Clients, investors, and high-level partnerships seek you out instead of you chasing them."
+    title: "Be Visible, Attract Opportunities",
+    description: "When you're seen, clients and partners seek you out instead of the reverse."
   },
   {
     icon: "📈",
-    title: "Consistent content = growth & authority",
-    description: "The more you post, the more you're seen as a leader in your niche."
+    title: "Consistent Content Builds Authority",
+    description: "Regular posting establishes you as a leader in your field."
   },
   {
     icon: "🤖",
-    title: "AI is leveling the playing field—be an early mover",
-    description: "Those who post consistently now will dominate the next wave of influence."
+    title: "Get Ahead with AI Now",
+    description: "Early adopters of AI-powered content will dominate the influence space."
   }
 ];
 
@@ -81,20 +81,6 @@ const PersonalBranding = () => {
                   <p className="text-sm md:text-base text-gray-300 pl-12">{point.description}</p>
                 </div>
               ))}
-            </div>
-            
-            <div className="mt-10 md:mt-12 text-center lg:text-left">
-              <div 
-                className="opacity-0 animate-fade-in" 
-                style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
-              >
-                <Button 
-                  onClick={scrollToBooking}
-                  className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-base md:text-lg font-bold px-8 py-4 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 mt-2"
-                >
-                  Start Now
-                </Button>
-              </div>
             </div>
           </div>
           
@@ -171,6 +157,15 @@ const PersonalBranding = () => {
               </div>
             </div>
           </div>
+        </div>
+        
+        <div className="w-full flex justify-center mt-12 md:mt-16"> 
+          <Button 
+            onClick={scrollToBooking}
+            className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-base md:text-lg font-bold px-8 py-4 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300"
+          >
+            Build Yours Now
+          </Button>
         </div>
       </div>
     </section>

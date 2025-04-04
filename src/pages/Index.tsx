@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const ContentPreview = lazy(() => import("@/components/ContentPreview"));
-const WhyBranding = lazy(() => import("@/components/WhyBranding"));
 const PersonalBranding = lazy(() => import("@/components/PersonalBranding"));
 const BookingSection = lazy(() => import("@/components/BookingSection"));
 
@@ -22,7 +21,6 @@ const Index = () => {
         <HowItWorks />
         <ContentPreview />
         <PersonalBranding />
-        <WhyBranding />
         <WhyChooseUs />
         <BookingSection />
       </Suspense>
