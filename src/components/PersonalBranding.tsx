@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useInView } from "react-intersection-observer";
+import { useInView } from "@/hooks/use-intersection-observer";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 type BrandingPoint = {
