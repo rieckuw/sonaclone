@@ -49,7 +49,7 @@ const PersonalBranding = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold mb-4 md:mb-6 text-white">
-            🚀 Why Personal Branding is{" "}
+            Why Personal Branding is{" "}
             <span className="text-gradient bg-gradient-to-r from-[#e4ff1a] to-[#7e22ce]">
               Non-Negotiable in 2025
             </span>
@@ -88,14 +88,11 @@ const PersonalBranding = () => {
                 className="opacity-0 animate-fade-in" 
                 style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}
               >
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                  💡 Personal branding isn't optional anymore—it's your ticket to bigger opportunities.
-                </h3>
                 <Button 
                   onClick={scrollToBooking}
                   className="bg-[#7e22ce] hover:bg-[#9333ea] text-white text-base md:text-lg font-bold px-8 py-4 rounded-full hover:shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] transition-all duration-300 mt-2"
                 >
-                  Let us build it for you 🚀
+                  Start Now
                 </Button>
               </div>
             </div>
