@@ -1,4 +1,3 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Megaphone, Globe, TrendingUp, Bot } from 'lucide-react';
@@ -78,7 +77,7 @@ const WhyBranding: React.FC = () => {
         <div className={`text-center mb-16 md:mb-20 transition-all duration-1000 
                       ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-white">
-            🚀 Why Personal Branding is Non-Negotiable in 2025
+            Why Personal Branding is Non-Negotiable in 2025
           </h2>
           <p className={`text-base md:text-xl text-gray-300 mb-6 md:mb-12 max-w-3xl mx-auto
                       transition-all duration-1000 delay-300
@@ -183,7 +182,7 @@ const WhyBranding: React.FC = () => {
                             animate-pulse-gradient" style={{ animationDuration: '6s', animationDelay: '1s' }}>
                   <div className="w-8 h-8 rounded-full bg-green-600/30 flex items-center justify-center mr-3">
                     <svg className="w-4 h-4 text-green-300" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clipRule="evenodd" />
+                      <path fillRule="evenodd" d="M18 5v8a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                     </svg>
                   </div>
                   <div>
@@ -210,10 +209,6 @@ const WhyBranding: React.FC = () => {
         {/* Final CTA */}
         <div className={`text-center transition-all duration-1000 delay-700 
                       ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-white bg-clip-text text-transparent">
-            💡 Personal branding isn't optional anymore—it's your ticket to bigger opportunities. Let us build it for you. 🚀
-          </h3>
-          
           <Button 
             onClick={scrollToBooking}
             className="relative overflow-hidden group bg-[#7e22ce] hover:bg-[#9333ea] text-white text-base sm:text-lg font-bold px-8 sm:px-10 py-6 sm:py-7 rounded-full transition-all duration-500 mt-4"
@@ -223,7 +218,7 @@ const WhyBranding: React.FC = () => {
             </span>
             
             <span className="relative z-10">
-              Start Your Personal Brand Journey
+              Start Now
             </span>
           </Button>
         </div>
