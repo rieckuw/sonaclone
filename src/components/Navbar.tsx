@@ -33,9 +33,10 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <a href="#how-it-works" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">How It Works</a>
             <a href="#content-preview" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Examples</a>
+            <a href="#why-branding-2025" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">2025 Branding</a>
             <a href="#why-branding" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Why Branding</a>
             <a href="#why-choose-us" className="text-gray-300 hover:text-[#a855f7] transition-colors text-sm font-medium uppercase">Why Choose Us</a>
             <a 
@@ -86,6 +87,13 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Examples
+            </a>
+            <a 
+              href="#why-branding-2025" 
+              className="text-gray-300 hover:text-[#a855f7] transition-colors py-3 text-base font-medium uppercase px-3"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              2025 Branding
             </a>
             <a 
               href="#why-branding" 
