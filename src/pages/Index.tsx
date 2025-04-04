@@ -18,8 +18,8 @@ const Index = () => {
       
       <Suspense fallback={<div className="h-96 flex items-center justify-center bg-[#0e0118]"></div>}>
         <HowItWorks />
-        <WhyChooseUs />
         <ContentPreview />
+        <WhyChooseUs />
         <BookingSection />
       </Suspense>
       
