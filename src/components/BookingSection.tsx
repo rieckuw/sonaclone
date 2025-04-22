@@ -8,8 +8,6 @@ const BookingSection = () => {
   
   const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
   
-  const calendlyHeight = isMobile ? "630px" : "750px";
-  
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -46,9 +44,8 @@ const BookingSection = () => {
                     className="calendly-inline-widget w-full bg-white rounded-lg" 
                     data-url="https://calendly.com/d/cnbs-zrn-ht5/demo-call?hide_event_type_details=1&primary_color=ac28d1" 
                     style={{ 
-                      minWidth: "320px", 
-                      maxHeight: "700px",
-                      height: "700px",
+                      minWidth: "320px",
+                      height: "100vh",
                       border: "none",
                       borderRadius: "8px"
                     }}>
