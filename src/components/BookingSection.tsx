@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -39,23 +38,17 @@ const BookingSection = () => {
                   <Clock className="w-5 h-5" />
                   <span>15 min</span>
                 </div>
-                
-                <div className="flex items-start gap-2 text-gray-300">
-                  <Video className="w-5 h-5 mt-1" />
-                  <span>Web conferencing details provided<br />upon confirmation.</span>
-                </div>
               </div>
               
               <div className="border-t border-purple-900/40 pt-6">
-                <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
-                
                 <div className="w-full overflow-hidden" style={{ maxWidth: '100%' }}>
                   <div 
                     className="calendly-inline-widget w-full bg-white rounded-lg" 
                     data-url="https://calendly.com/d/cnbs-zrn-ht5/demo-call?hide_event_type_details=1&primary_color=ac28d1" 
                     style={{ 
                       minWidth: "320px", 
-                      height: calendlyHeight,
+                      maxHeight: "700px",
+                      height: "700px",
                       border: "none",
                       borderRadius: "8px"
                     }}>
