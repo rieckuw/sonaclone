@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -83,14 +84,18 @@ const BookingSection = () => {
                 
                 <div className="mb-8">
                   <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                    By the end of this strategy call, you will have a clear
-                    understanding of how to scale your personal brand effortlessly
-                    with AI-generated content—without recording daily.
+                    By the end of this free strategy call, you'll walk away with a clear roadmap to:
                   </p>
                   
+                  <ul className="list-disc pl-5 text-gray-300 leading-relaxed mt-4 text-sm md:text-base space-y-2">
+                    <li>Turn your face into your funnel (even if you hate being on camera)</li>
+                    <li>Automate your content output with AI — shortform, optimized, daily</li>
+                    <li>Get tons of qualified leads/month without relying on ads or freelancers</li>
+                  </ul>
+                  
                   <p className="text-gray-300 leading-relaxed mt-4 text-sm md:text-base">
-                    Find a time on Ricky's calendar to schedule your call today.
-                    We look forward to helping you build your authority online!
+                    Find a time on Arsyla's calendar to book your free call now.
+                    Spots are limited — this is not a sales call, it's a strategy session to see if we're a fit.
                   </p>
                 </div>
                 
@@ -101,31 +106,31 @@ const BookingSection = () => {
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300 text-sm md:text-base">
-                        Busy entrepreneurs & founders who want to build a strong personal brand but don't have time to record content.
+                        Business coaches, consultants, or agency owners that are already making money.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300 text-sm md:text-base">
-                        Coaches & consultants looking to attract more leads and position themselves as industry experts.
+                        Doctors, dentists, and service pros with high-ticket offers but no time for content.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300 text-sm md:text-base">
-                        CEOs & executives who need consistent social media presence without spending hours on content creation.
+                        Founders & execs who want a strong social media presence without managing a content team.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300 text-sm md:text-base">
-                        Anyone struggling with consistency and wants to grow 10x faster with daily high-quality videos—on autopilot.
+                        Entrepreneurs who've tried making content but can't stay consistent.
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-[#ff3ebc] mt-1 flex-shrink-0" />
                       <span className="text-gray-300 text-sm md:text-base">
-                        Professionals who want to leverage AI to stay ahead of competitors without extra effort.
+                        Professionals who want to turn their brand into a lead engine using AI — and want results, not just followers.
                       </span>
                     </li>
                   </ul>
