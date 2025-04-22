@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 const HowItWorks = lazy(() => import("@/components/HowItWorks"));
 const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
 const ContentPreview = lazy(() => import("@/components/ContentPreview"));
-const PersonalBranding = lazy(() => import("@/components/PersonalBranding"));
 const BookingSection = lazy(() => import("@/components/BookingSection"));
 
 const Index = () => {
@@ -20,7 +19,6 @@ const Index = () => {
       <Suspense fallback={<div className="h-96 flex items-center justify-center bg-[#0e0118]"></div>}>
         <HowItWorks />
         <ContentPreview />
-        <PersonalBranding />
         <WhyChooseUs />
         <BookingSection />
       </Suspense>
