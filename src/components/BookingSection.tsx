@@ -1,21 +1,16 @@
-
 import React, { useState, useEffect } from 'react';
 import { Check, Clock, Video } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const BookingSection = () => {
-  // State to track if Calendly script is loaded
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
   const isMobile = useIsMobile();
   
-  // WhatsApp link
   const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
   
-  // Calculate appropriate height based on viewport
   const calendlyHeight = isMobile ? "630px" : "750px";
   
   useEffect(() => {
-    // Add Calendly script to the document
     const script = document.createElement('script');
     script.src = 'https://assets.calendly.com/assets/external/widget.js';
     script.async = true;
@@ -23,7 +18,6 @@ const BookingSection = () => {
     document.body.appendChild(script);
     
     return () => {
-      // Clean up when component unmounts
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
@@ -54,11 +48,10 @@ const BookingSection = () => {
               <div className="border-t border-purple-900/40 pt-6">
                 <h3 className="text-xl font-bold text-white mb-6">Select a Day</h3>
                 
-                {/* Calendly inline widget with white background */}
                 <div className="w-full overflow-hidden" style={{ maxWidth: '100%' }}>
                   <div 
                     className="calendly-inline-widget w-full bg-white rounded-lg" 
-                    data-url="https://calendly.com/ricky-sonaclone/demo-call?text_color=333333&primary_color=7429c6&hide_gdpr_banner=1&hide_landing_page_details=1&iframe_title=Select+a+time&background_color=ffffff" 
+                    data-url="https://calendly.com/d/cnbs-zrn-ht5/demo-call?hide_event_type_details=1&primary_color=d435ff" 
                     style={{ 
                       minWidth: "320px", 
                       height: calendlyHeight,
@@ -76,7 +69,7 @@ const BookingSection = () => {
                 <div className="mb-8 flex items-center justify-center">
                   <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-[#7e22ce]">
                     <img 
-                      src="/lovable-uploads/582b24c1-ef41-4ede-a202-e5ff8be9e0d1.png" 
+                      src="/lovable-uploads/ca3add95-a60c-4f0a-8e62-062d5171c147.png" 
                       alt="Profile" 
                       className="w-full h-full object-cover"
                     />
@@ -84,7 +77,7 @@ const BookingSection = () => {
                 </div>
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-[#ff3ebc] text-lg md:text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH RICKY</h3>
+                  <h3 className="text-[#ff3ebc] text-lg md:text-xl font-bold uppercase">SCHEDULE YOUR CALL WITH ARSYLA</h3>
                   <h2 className="text-white text-2xl md:text-4xl font-bold mt-2">Free 15-Minute Strategy Call</h2>
                 </div>
                 
