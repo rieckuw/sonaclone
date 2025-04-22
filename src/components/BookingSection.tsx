@@ -51,7 +51,7 @@ const BookingSection = () => {
                 <div className="w-full overflow-hidden" style={{ maxWidth: '100%' }}>
                   <div 
                     className="calendly-inline-widget w-full bg-white rounded-lg" 
-                    data-url="https://calendly.com/d/cnbs-zrn-ht5/demo-call?hide_event_type_details=1&primary_color=d435ff" 
+                    data-url="https://calendly.com/d/cnbs-zrn-ht5/demo-call?hide_event_type_details=1&primary_color=ac28d1" 
                     style={{ 
                       minWidth: "320px", 
                       height: calendlyHeight,
