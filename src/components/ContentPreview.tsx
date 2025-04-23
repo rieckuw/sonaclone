@@ -14,6 +14,36 @@ const ContentPreview: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isMobile = useIsMobile();
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
+              beforeVideoRef.current.pause();
+              setBeforePlaying(false);
+            }
+            if (afterVideoRef.current && !afterVideoRef.current.paused) {
+              afterVideoRef.current.pause();
+              setAfterPlaying(false);
+            }
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const handleBeforePlay = () => {
     if (beforeVideoRef.current && !beforePlaying) {
       if (afterVideoRef.current && !afterVideoRef.current.paused) {

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -234,4 +233,49 @@
   button, a {
     @apply min-h-[44px] min-w-[44px];
   }
+}
+
+@keyframes candlelight {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes candlelight-delayed {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes candlelight-slow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.animate-candlelight {
+  animation: candlelight 4s ease-in-out infinite;
+}
+
+.animate-candlelight-delayed {
+  animation: candlelight-delayed 6s ease-in-out infinite;
+}
+
+.animate-candlelight-slow {
+  animation: candlelight-slow 8s ease-in-out infinite;
 }
