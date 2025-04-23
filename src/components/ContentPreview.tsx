@@ -7,8 +7,6 @@ const ContentPreview: React.FC = () => {
   const [beforePlaying, setBeforePlaying] = useState(false);
   const [afterPlaying, setAfterPlaying] = useState(false);
   const [hovered, setHovered] = useState<'before' | 'after' | null>(null);
-  const [inView, setInView] = useState(false);
-  const [isIntersecting, setIsIntersecting] = useState(false);
   const beforeVideoRef = useRef<HTMLVideoElement>(null);
   const afterVideoRef = useRef<HTMLVideoElement>(null);
   const beforeContainerRef = useRef<HTMLDivElement>(null);
@@ -60,108 +58,6 @@ const ContentPreview: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
-            beforeVideoRef.current.pause();
-            setBeforePlaying(false);
-          }
-          if (afterVideoRef.current && !afterVideoRef.current.paused) {
-            afterVideoRef.current.pause();
-            setAfterPlaying(false);
-          }
-        }
-        setInView(entry.isIntersecting);
-        setIsIntersecting(entry.isIntersecting);
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    const videoObserverCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      entries.forEach((entry) => {
-        const isBeforeVideo = entry.target === beforeContainerRef.current;
-        const isAfterVideo = entry.target === afterContainerRef.current;
-        
-        if (!isIntersecting) return;
-
-        if (entry.isIntersecting) {
-        } else {
-          if (isBeforeVideo && beforeVideoRef.current && !beforeVideoRef.current.paused) {
-            beforeVideoRef.current.pause();
-            setBeforePlaying(false);
-          }
-          if (isAfterVideo && afterVideoRef.current && !afterVideoRef.current.paused) {
-            afterVideoRef.current.pause();
-            setAfterPlaying(false);
-          }
-        }
-      });
-    };
-    
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.6,
-    };
-    
-    const videoObserver = new IntersectionObserver(videoObserverCallback, options);
-    
-    if (beforeContainerRef.current) {
-      videoObserver.observe(beforeContainerRef.current);
-    }
-    
-    if (afterContainerRef.current) {
-      videoObserver.observe(afterContainerRef.current);
-    }
-    
-    return () => {
-      if (beforeContainerRef.current) {
-        videoObserver.unobserve(beforeContainerRef.current);
-      }
-      if (afterContainerRef.current) {
-        videoObserver.unobserve(afterContainerRef.current);
-      }
-    };
-  }, [isIntersecting, beforePlaying, afterPlaying]);
-
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
-          beforeVideoRef.current.pause();
-          setBeforePlaying(false);
-        }
-        if (afterVideoRef.current && !afterVideoRef.current.paused) {
-          afterVideoRef.current.pause();
-          setAfterPlaying(false);
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
   return (
     <section 
       id="content-preview" 
@@ -191,8 +87,7 @@ const ContentPreview: React.FC = () => {
           <div className="flex justify-center md:block">
             <div 
               ref={beforeContainerRef}
-              className={`relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full transition-all duration-1000 
-                        ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-20'}`}
+              className="relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full"
               onMouseEnter={() => setHovered('before')}
               onMouseLeave={() => setHovered(null)}
             >
@@ -206,7 +101,7 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/0401.jpg"
                     playsInline
-                    className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'before' ? 'scale-[1.03]' : 'scale-100'}`}
+                    className="w-full h-full absolute inset-0"
                     preload="auto"
                     onClick={() => handleVideoPause(beforeVideoRef, setBeforePlaying)}
                   >
@@ -215,13 +110,10 @@ const ContentPreview: React.FC = () => {
                   </video>
                   {!beforePlaying && (
                     <div 
-                      className={`absolute inset-0 flex items-center justify-center cursor-pointer 
-                                bg-black/40 hover:bg-black/30 
-                                transition-all duration-300`}
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/40"
                       onClick={handleBeforePlay}
                     >
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm 
-                                  hover:bg-white/30 transition-all duration-300 animate-pulse-gradient">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                         <Play size={24} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                       </div>
                     </div>
@@ -241,8 +133,7 @@ const ContentPreview: React.FC = () => {
           <div className="flex justify-center md:block">
             <div 
               ref={afterContainerRef}
-              className={`relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full transition-all duration-1000 
-                        ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-20'}`}
+              className="relative overflow-hidden rounded-xl max-w-[280px] sm:max-w-[320px] mx-auto w-full"
               onMouseEnter={() => setHovered('after')}
               onMouseLeave={() => setHovered(null)}
             >
@@ -256,7 +147,7 @@ const ContentPreview: React.FC = () => {
                     controls={false}
                     poster="https://rickypranaya.publit.io/file/dennish.jpg"
                     playsInline
-                    className={`w-full h-full absolute inset-0 transition-all duration-300 ${hovered === 'after' ? 'scale-[1.03]' : 'scale-100'}`}
+                    className="w-full h-full absolute inset-0"
                     preload="auto"
                     onClick={() => handleVideoPause(afterVideoRef, setAfterPlaying)}
                   >
@@ -265,13 +156,10 @@ const ContentPreview: React.FC = () => {
                   </video>
                   {!afterPlaying && (
                     <div 
-                      className={`absolute inset-0 flex items-center justify-center cursor-pointer 
-                                bg-black/40 hover:bg-black/30 
-                                transition-all duration-300`}
+                      className="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/40"
                       onClick={handleAfterPlay}
                     >
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm 
-                                  hover:bg-white/30 transition-all duration-300 animate-pulse-gradient">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                         <Play size={24} className="text-white ml-1" fill="white" fillOpacity={0.8} />
                       </div>
                     </div>
