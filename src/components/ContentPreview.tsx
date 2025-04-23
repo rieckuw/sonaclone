@@ -60,11 +60,9 @@ const ContentPreview: React.FC = () => {
     }
   };
 
-  // Pause videos when section is out of viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When section goes out of view, pause all videos
         if (!entry.isIntersecting) {
           if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
             beforeVideoRef.current.pause();
@@ -96,21 +94,16 @@ const ContentPreview: React.FC = () => {
     };
   }, []);
 
-  // Handle video playback based on visibility
   useEffect(() => {
     const videoObserverCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       entries.forEach((entry) => {
         const isBeforeVideo = entry.target === beforeContainerRef.current;
         const isAfterVideo = entry.target === afterContainerRef.current;
         
-        // Only consider videos when section is in view
         if (!isIntersecting) return;
 
         if (entry.isIntersecting) {
-          // Video is in view, but don't autoplay - let user click to start
-          // This fixes the autoplay issues
         } else {
-          // Video is out of view, pause it
           if (isBeforeVideo && beforeVideoRef.current && !beforeVideoRef.current.paused) {
             beforeVideoRef.current.pause();
             setBeforePlaying(false);
@@ -149,11 +142,9 @@ const ContentPreview: React.FC = () => {
     };
   }, [isIntersecting, beforePlaying, afterPlaying]);
 
-  // Add event listener for page visibility changes
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.hidden) {
-        // Page is hidden, pause videos
         if (beforeVideoRef.current && !beforeVideoRef.current.paused) {
           beforeVideoRef.current.pause();
           setBeforePlaying(false);
@@ -172,7 +163,6 @@ const ContentPreview: React.FC = () => {
   }, []);
 
   return (
-    // ... keep existing code (section wrapper and title)
     <section 
       id="content-preview" 
       className="py-16 md:py-20 bg-[#0e0118] relative overflow-hidden"
@@ -182,7 +172,7 @@ const ContentPreview: React.FC = () => {
       <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-[#e4ff1a]/20 rounded-full blur-[120px] animate-pulse-slow -z-0"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className={`text-center mb-12 md:mb-20 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className="text-center mb-12 md:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-white">
             Content Like You've Never Seen
           </h2>
@@ -193,9 +183,7 @@ const ContentPreview: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto relative">
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className={`bg-purple-600 p-4 rounded-full shadow-[0_0_25px_5px_rgba(126,34,206,0.4)] 
-                          transition-all duration-700 
-                          ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+            <div className="bg-purple-600 p-4 rounded-full shadow-[0_0_25px_5px_rgba(126,34,206,0.4)]">
               <ArrowRight size={32} className="text-white" />
             </div>
           </div>
