@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -17,7 +16,7 @@ const Navbar = () => {
   }, []);
 
   // WhatsApp link
-  const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
+  const whatsappLink = "https://api.whatsapp.com/send?phone=6282123419116&text=Hi%20Arsyla,%20aku%20tertarik%20dengan%20personal%20branding.%20Bisa%20dibantu%20jelasin%20lebih%20lanjut%3F";
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0e0118]/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-5'}`}>

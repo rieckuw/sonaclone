@@ -6,7 +6,7 @@ const BookingSection = () => {
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
   const isMobile = useIsMobile();
   
-  const whatsappLink = "https://api.whatsapp.com/send?phone=6285922888135";
+  const whatsappLink = "https://api.whatsapp.com/send?phone=6282123419116&text=Hi%20Arsyla,%20aku%20tertarik%20dengan%20personal%20branding.%20Bisa%20dibantu%20jelasin%20lebih%20lanjut%3F";
   
   useEffect(() => {
     const script = document.createElement('script');
